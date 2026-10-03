@@ -65,7 +65,7 @@ function createMap(el, o = {}) {
   const st = { fx: o.fx ?? ME.x, fy: o.fy ?? ME.y, tx: null, ty: null, mode: "drops" };
   const place = (node, x, y) => { node.style.left = (x + W / 2) * S + "px"; node.style.top = (y + H / 2) * S + "px"; node.style.transform = `rotateZ(${-rot}deg) rotateX(${-tilt}deg)`; };
   const apply = () => {
-    const r = el.getBoundingClientRect(); const cx = r.width / 2, cy = r.height * (o.anchorY ?? 0.56);
+    const cx = el.clientWidth / 2, cy = el.clientHeight * (o.anchorY ?? 0.56);
     const px = (st.fx + W / 2) * S, py = (st.fy + H / 2) * S;
     plane.style.left = cx - px + "px"; plane.style.top = cy - py + "px"; plane.style.transformOrigin = `${px}px ${py}px`;
     plane.style.transform = `rotateX(${tilt}deg) rotateZ(${rot}deg)`;
@@ -90,8 +90,8 @@ function createMap(el, o = {}) {
   /* drag to pan */
   if (o.interactive) {
     let d0 = null;
-    el.addEventListener("pointerdown", (e) => { d0 = { x: e.clientX, y: e.clientY, fx: st.fx, fy: st.fy }; el.setPointerCapture(e.pointerId); st.tx = null; });
-    el.addEventListener("pointermove", (e) => { if (!d0) return; const a = -rot * Math.PI / 180, sx = (e.clientX - d0.x) / S, sy = (e.clientY - d0.y) / S / Math.cos(tilt * Math.PI / 180) * 0.8;
+    el.addEventListener("pointerdown", (e) => { d0 = { x: e.clientX, y: e.clientY, fx: st.fx, fy: st.fy, id: e.pointerId, cap: false }; st.tx = null; });
+    el.addEventListener("pointermove", (e) => { if (!d0) return; if (!d0.cap) { if (Math.hypot(e.clientX - d0.x, e.clientY - d0.y) < 6) return; d0.cap = true; el.setPointerCapture(d0.id); } const a = -rot * Math.PI / 180, sx = (e.clientX - d0.x) / S, sy = (e.clientY - d0.y) / S / Math.cos(tilt * Math.PI / 180) * 0.8;
       st.fx = d0.fx - (sx * Math.cos(a) - sy * Math.sin(a)); st.fy = d0.fy - (sx * Math.sin(a) + sy * Math.cos(a)); clampF(); apply(); });
     el.addEventListener("pointerup", () => d0 = null);
   }
@@ -127,27 +127,27 @@ const SCENES = [
   { id: "map", t: "Today's drops", s: "map", run: () => mapMode("drops"),
     n: ["Three drops a day, in real parks near you.", "They land on footpaths inside public parks and reserves (from OpenStreetMap), 400 m to 1.5 km from your home area. Never on roads, at schools or on private land.", "Each one shows the walk in steps, not just metres. The rare one is shared by your gym this week: 14 people have found it.", "Tap a drop or the cards along the bottom. Drag the map."] },
   { id: "walk", t: "Walk there", s: "map", run: () => startWalk(),
-    n: ["You have to actually be there.", "The drop opens only when your phone's GPS is within about 40 m. It also checks you walked the last 300 m (not a car) and that your step count rose to match.", "Drove most of the way? Walk the last bit and you still get it, at half points."] },
+    n: ["You have to actually be there.", "The drop opens only when your phone's GPS is within about 40 m. It also checks you walked the last 300 m (not a car) and that your step count rose to match. Prizes stay small, so it's not worth cheating.", "Drove most of the way? Walk the last bit and you still get it, at half points."] },
   { id: "cam", t: "Look around", s: "cam", run: () => camFar(),
-    n: ["The beam: optional, and it works today.", "Camera plus compass plus GPS, in the web layer JF Coach already uses for the meal scanner. A column of light stands where the drop is. The arrow points you to it.", "This scene is a real park photo turned 3D with an AI depth map, so the trees hide the bottom of the beam. Drag to look around, or tap Use motion on a phone.", "The live camera version is on the explainer page. Try it outside."] },
+    n: ["The beam: optional, and it works today.", "Camera plus compass plus GPS, in the web layer JF Coach already uses for the meal scanner. A column of light points toward the drop. The arrow turns you to it.", "This scene is a real park photo turned 3D with an AI depth map, so the trees hide the bottom of the beam. Drag to look around, or tap Use motion on a phone.", "The live camera version is on the explainer page. Try it outside."] },
   { id: "near", t: "You're there", s: "cam", run: () => camNear(),
     n: ["Close enough: it's there on the grass.", "Tap the trinket to collect it. Points follow the walk: 10, plus 2 for every 100 m. Gold drops count double. That's sized against what steps already earn (8,000 steps is 16 points), so drops add to the challenge without swamping workouts and habits."] },
-  { id: "collect", t: "Collect", s: "cam", run: () => { camNear(); setTimeout(() => openCollect(DROPS[0]), 400); },
+  { id: "collect", t: "Collect", s: "cam", run: () => { camNear(); collectT = setTimeout(() => openCollect(DROPS[0]), 400); },
     n: ["What you get.", "A trinket for the collection, points, and usually a sealed crate.", "The push-ups bonus is optional and honour-based. If people do them, great. The steps are the point."] },
   { id: "crates", t: "Crates", s: "crates", run: () => renderCrates(),
-    n: ["Crates open with steps, walked anywhere.", "This is Pokémon Go's egg, the mechanic with the best walking evidence: any walk moves it forward, even if you never chase a drop. Apple Health does the counting.", "You can carry three. Drops refill them, so the loop keeps going."] },
+    n: ["Crates open with steps, walked anywhere.", "Inspired by Pokémon Go's eggs: any walk moves it forward, even if you never chase a drop. Apple Health does the counting.", "Everyone gets a free crate every Monday, so even people who never chase a drop get something for their normal walking. You can carry three; drops refill them."] },
   { id: "blocks", t: "Blocks", s: "map", run: () => mapMode("blocks"),
-    n: ["Territory, but for gyms.", "The map is cut into blocks about 350 m across. Walk in one and your steps count for your gym. A block belongs to the gym with the most steps in it over the last 7 days, so it fades if nobody walks there.", "Your home block never records you. Others see gym colours only, a day late, never names or paths.", "Scores divide by the square root of members, so small gyms can win."] },
+    n: ["Territory, but for gyms.", "The map is cut into blocks about 350 m across. Walk in one and your steps count for your gym. A block belongs to the gym with the most steps in it over the last 7 days, so it fades if nobody walks there.", "Your home block never records you. Others see gym colours only, a day late, never names or paths, and only once 3+ people from a gym have walked a block.", "Scores divide by the square root of members, so small gyms can win."] },
   { id: "gymlock", t: "In-session ding", s: "lock", run: () => lockScreen("gym"),
-    n: ["Gabrielle's idea: one in every gym, 3× points.", "During a booked session, at that gym, something gets hidden. The phone dings once."] },
+    n: ["Gabrielle's idea: one in every gym, 3× points.", "It appears as your booked session ends, at that gym, so nobody is on their phone mid-set. The phone dings once, with the clue."] },
   { id: "gym", t: "Find it in the gym", s: "gym", run: () => gymScene(),
-    n: ["Hidden behind real equipment.", "This is the Chelsea Heights floor from Snap's club page, turned 3D with AI depth. The glow sits behind the plate tree. Drag and it peeks out, because the machines really are in front of it.", "In the real gym: a small JF plaque on a machine, moved weekly by the trainer. The camera recognises it and the trinket pops out on top.", "The clue photo shows the corner. Indoors GPS can't point, so the photo does."] },
+    n: ["Hidden behind real equipment.", "This is one Chelsea Heights photo from Snap's club page, given depth by an AI model so it behaves like 3D. The glow sits behind the plate tree, hidden by the machines in front of it. Drag to look around.", "In the real gym: a small JF plaque on a machine, moved weekly by the trainer. The camera recognises it and the trinket pops out on top.", "The clue photo shows the corner. Indoors GPS can't point, so the photo does."] },
   { id: "collection", t: "Collection", s: "collection", run: () => renderGrid(),
     n: ["Sixteen things, then the set changes.", "Small, finishable sets beat an endless catalogue. Seasonal pieces (Spring wattle) leave on a date, which brings people back.", "Trinkets can also unlock JFmoji wearables in the inventory you already have."] },
   { id: "settings", t: "Settings", s: "settings",
     n: ["You choose where and when.", "Home and work areas are suburbs, never addresses. Max distance and step-free places make it work for anyone.", "Nudges are capped at one a day."] },
 ];
-let cur = null;
+let cur = null, collectT = null;
 function show(id) {
   $$(".screen").forEach((s) => { const on = s.id === "s-" + id; if (!on && s.classList.contains("on")) { s.classList.remove("on"); } s.classList.toggle("on", on); });
   $("#app").classList.toggle("dark", id === "lock" || id === "cam" || id === "gym");
@@ -155,7 +155,7 @@ function show(id) {
 }
 function scene(id) {
   const sc = SCENES.find((s) => s.id === id) || SCENES[0]; cur = sc.id;
-  closeCollect(true); show(sc.s); sc.run && sc.run();
+  closeCollect(true); if (sc.id !== "walk") stopWalk(true); clearTimeout(collectT); show(sc.s); sc.run && sc.run();
   $$("#scenes button").forEach((b) => b.classList.toggle("on", b.dataset.id === sc.id));
   $("#notes").innerHTML = `<h3>${sc.n[0]}</h3>${sc.n.slice(1).map((p) => `<p>${p}</p>`).join("")}<p class="tip">Scene ${SCENES.indexOf(sc) + 1} of ${SCENES.length}. Use the arrow keys to step through.</p>`;
   if (!solo) history.replaceState(null, "", "#" + sc.id);
@@ -175,11 +175,11 @@ addEventListener("resize", fit); fit();
 /* ------------------------------------------------------------------ lock screens */
 function lockScreen(kind) {
   const gym = kind === "gym";
-  $("#locktime").textContent = gym ? "6:12" : "12:41"; $("#clock").textContent = gym ? "6:12" : "12:41";
-  $("#lockdate").textContent = gym ? "Thursday 9 October" : "Tuesday 7 October";
+  $("#locktime").textContent = gym ? "6:58" : "12:41"; $("#clock").textContent = gym ? "6:58" : "12:41";
+  $("#lockdate").textContent = gym ? "Friday 9 October" : "Wednesday 7 October";
   $(".lock .wall").style.backgroundImage = gym ? "url(img/gym-chelsea-heights-07.jpg)" : "url(img/park-02.jpg)"; $(".lock .wall").style.filter = gym ? "blur(2px) brightness(.45) saturate(1.1)" : "";
   const n = gym
-    ? { h: "Something's hidden in the gym", b: "You're in a session, so this one's worth 3×. Your clue's in the app.", go: "gym" }
+    ? { h: "Session done. One more thing", b: "There's a gym drop near the plate tree by the red pillar. Worth 3× today.", go: "gym" }
     : { h: "Lunch walk?", b: "A drop landed in Heights Park. About 870 steps from you.", go: "map" };
   $("#lockstack").innerHTML = `<div class="notif" style="top:${gym ? 300 : 300}px"><div class="ai">${JF_MARK}</div><div class="nt"><div class="h">${n.h}<span>now</span></div>${n.b}</div></div>`;
   $(".lock .notif").onclick = () => scene(n.go);
@@ -215,22 +215,22 @@ function mapMode(m) {
 $$("#seg button").forEach((b) => b.onclick = () => { cur = b.dataset.mode === "blocks" ? "blocks" : "map"; mapMode(b.dataset.mode); });
 function setSteps(n) { $("#stepsNum").textContent = fmt(n); $("#stepsArc").style.strokeDashoffset = 88 - 88 * Math.min(1, n / 8100); }
 function renderBoard() {
-  const rows = [["CH", "Chelsea Heights", 214, 18, "You walked 31 of them"], ["LB", "Lynbrook", 166, 12, "Up 9 this week"], ["BR", "Botanic Ridge", 131, 10, "Took 6 from Lynbrook"]];
-  $("#board").innerHTML = rows.map(([k, n, b, m, s], i) => `<div class="r ${k === "CH" ? "mine" : ""}"><div class="n">${i + 1}</div><div class="hx" style="background:${GYMS[k].c}"></div><div class="g">${n}<span>${m} walkers · ${s}</span></div><div class="s">${(b / Math.sqrt(m)).toFixed(1)}<small>${b} blocks</small></div></div>`).join("");
+  const rows = [["CH", "Chelsea Heights", 214, 18, "You walked 31 of them"], ["LB", "Lynbrook", 166, 12, "Up 9 this week"], ["BR", "Botanic Ridge", 131, 10, "6 new blocks this week"]];
+  $("#board").innerHTML = rows.map(([k, n, b, m, s], i) => `<div class="r ${k === "CH" ? "mine" : ""}"><div class="n">${i + 1}</div><div class="hx" style="background:${GYMS[k].c}"></div><div class="g">${n}<span>${m} walkers · ${s}</span></div><div class="s">${(b / Math.sqrt(m)).toFixed(1)}<small>score · ${b} blocks</small></div></div>`).join("");
 }
 
 /* walking: the avatar follows the route, steps count up */
 let walkRaf = null;
 function stopWalk(silent) { cancelAnimationFrame(walkRaf); walkRaf = null; if (!silent) mapMode("drops"); }
 function startWalk() {
-  ensureMap(); const d = sel && !collected.has(sel.id) ? sel : DROPS[0]; sel = d;
-  mapMode("drops"); cur = "walk";
+  ensureMap(); const d = sel && !collected.has(sel.id) ? sel : DROPS[0];
+  mapMode("drops"); select(d); cur = "walk";
   $("#sheetDrops").classList.add("hide"); $("#sheetWalk").classList.remove("hide");
   const pts = d.route || [[ME.x, ME.y], [d.x, d.y]];
   map.route(pts, 0); $("#wTo").textContent = "to " + d.place;
   const seg = []; let L = 0; for (let i = 1; i < pts.length; i++) { const l = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); seg.push(l); L += l; }
   const at = (f) => { let t = f * L; for (let i = 0; i < seg.length; i++) { if (t <= seg[i]) { const k = t / seg[i]; return [pts[i][0] + (pts[i + 1][0] - pts[i][0]) * k, pts[i][1] + (pts[i + 1][1] - pts[i][1]) * k]; } t -= seg[i]; } return pts[pts.length - 1]; };
-  const arrive = $("#btnArrive"); arrive.style.opacity = .35; arrive.style.pointerEvents = "none"; arrive.textContent = "Open the drop";
+  const arrive = $("#btnArrive"); arrive.style.opacity = .35; arrive.style.pointerEvents = "none"; arrive.textContent = "Opens within 40 m"; $("#btnSee").style.display = "none";
   const dur = 13000, t0 = performance.now();
   const step = (now) => {
     const f = Math.min(1, (now - t0) / dur), e = f < .5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2;
@@ -238,36 +238,38 @@ function startWalk() {
     const left = Math.max(0, d.m * (1 - e));
     $("#wSteps").textContent = fmt(d.steps * e); $("#wDist").textContent = left < 40 ? "Here" : Math.round(left / 10) * 10 + " m"; $("#wBar").style.width = e * 100 + "%";
     setSteps(6214 + d.steps * e);
-    if (left < 40) { arrive.style.opacity = 1; arrive.style.pointerEvents = "auto"; }
-    if (f < 1) walkRaf = requestAnimationFrame(step); else { walkRaf = null; toast("You're there. It's on the grass by the path."); }
+    if (left < 40 && arrive.style.pointerEvents !== "auto") { arrive.style.opacity = 1; arrive.style.pointerEvents = "auto"; arrive.textContent = "Collect"; $("#btnSee").style.display = ""; }
+    if (f < 1) walkRaf = requestAnimationFrame(step); else { walkRaf = null; toast("You're at Heights Park. Collect it, or see it in the camera."); }
   };
   walkRaf = requestAnimationFrame(step);
 }
 $("#btnWalk").onclick = () => startWalk();
 $("#btnStop").onclick = () => { cur = "map"; stopWalk(); };
-$("#btnArrive").onclick = () => scene("near");
+$("#btnArrive").onclick = () => openCollect(sel || DROPS[0]);
+$("#btnSee").onclick = () => scene("near");
 $("#btnLook").onclick = () => scene("cam");
 
 /* ------------------------------------------------------------------ camera: park beam */
-let cam = null, camState = "far";
+let cam = null, camP = null, camState = "far";
 async function ensureCam() {
-  if (cam) { cam.state.alive || 0; return cam; }
-  cam = await createPhotoScene($("#camGL"), {
-    img: "img/park-02.jpg", depth: "img/park-02-depth.png", sky: 0.035, hfov: 74, near: 1.5, far: 45, gamma: 1.3, sway: 0.45, margin: 0.09, eye: 0, light: 1.3,
+  if (cam) return cam;
+  if (camP) return camP;
+  camP = createPhotoScene($("#camGL"), {
+    img: "img/park-02.jpg", depth: "img/park-02-depth.png", sky: 0.035, hfov: 74, near: 1.5, far: 45, gamma: 1.3, sway: 0.3, margin: 0.09, eye: 0, light: 1.3,
     targets: [
       { id: "far", u: 0.315, v: 0.475, behind: 9, beam: "gold", beamHeight: 30, beamRadius: 0.6 },
       { id: "near", u: 0.66, v: 0.66, behind: 0.2, kind: "dumbbell", size: 0.62, lift: 0.5, beam: "gold", beamHeight: 6, beamRadius: 0.18 },
     ],
     onFrame: camFrame, onCollect: (t) => { if (t.id === "near" && camState === "near") openCollect(sel || DROPS[0]); },
-  });
-  return cam;
+  }).then((c) => (cam = c));
+  return camP;
 }
 let lastCamFrame = 0;
 function camFrame(targets, state) {
   const tgt = targets.find((t) => t.id === (camState === "far" ? "far" : "near")); if (!tgt || !tgt.screen) return;
   const s = tgt.screen, arrow = $("#camArrow"), ret = $("#camRet");
   edgeArrow(arrow, s, $("#s-cam"));
-  const r = $("#s-cam").getBoundingClientRect();
+  const r = { width: $("#s-cam").clientWidth, height: $("#s-cam").clientHeight };
   const inView = Math.abs(s.x) < 0.75 && !s.behind;
   ret.style.opacity = camState === "near" && inView ? 1 : 0;
   ret.style.left = ((s.x + 1) / 2) * r.width + "px"; ret.style.top = ((1 - s.y) / 2) * r.height - 30 + "px";
@@ -276,7 +278,7 @@ function camFrame(targets, state) {
   }
 }
 function edgeArrow(arrow, s, host) {
-  const r = host.getBoundingClientRect();
+  const r = { width: host.clientWidth, height: host.clientHeight };
   const off = Math.abs(s.x) > 0.8 || s.behind;
   arrow.style.opacity = off ? 1 : 0;
   if (!off) return;
@@ -285,13 +287,13 @@ function edgeArrow(arrow, s, host) {
   arrow.querySelector("svg").style.transform = right ? "" : "rotate(180deg)";
 }
 async function camFar() {
-  camState = "far"; const c = await ensureCam(); resumeScene(c);
+  camState = "far"; const c = await ensureCam(); resumeScene(c); if (camState !== "far") return;
   c.targets.find((t) => t.id === "near").grp.visible = false; c.targets.find((t) => t.id === "far").grp.visible = true;
   c.look(-0.3); $("#camDist").innerHTML = `<b>180 m</b><span>${CATALOGUE[(sel || DROPS[0]).kind].name} · ${(sel || DROPS[0]).place}</span>`;
   $("#camCloser").style.display = "";
 }
 async function camNear() {
-  camState = "near"; const c = await ensureCam(); resumeScene(c);
+  camState = "near"; const c = await ensureCam(); resumeScene(c); if (camState !== "near") return; c.setKind("near", (sel || DROPS[0]).kind);
   c.targets.find((t) => t.id === "near").grp.visible = true; c.targets.find((t) => t.id === "far").grp.visible = false;
   c.look(0.3); $("#camDist").innerHTML = `<b>12 m</b><span>It's here. Tap to collect</span>`;
   $("#camCloser").style.display = "none";
@@ -300,7 +302,7 @@ $("#camCloser").onclick = () => scene("near");
 function resumeScene(c) { if (!c.state.running) { c.state.running = true; } }
 function camPause() {}
 function gymPause() {}
-async function gyroOn(c, btn) { const ok = await c.enableGyro(); btn.textContent = ok ? "Motion on" : "Motion not available"; }
+async function gyroOn(c, btn) { const ok = await c.enableGyro(); btn.textContent = ok ? "Following your phone" : "Motion not available"; }
 $("#gyroBtn").onclick = async () => gyroOn(await ensureCam(), $("#gyroBtn"));
 
 /* ------------------------------------------------------------------ collect sheet */
@@ -341,31 +343,32 @@ function burst(color) {
 function renderCrates() {
   const rows = [
     { k: "crateGold", n: "Gold crate", have: 6870, need: 10000, from: "Rare drop, Bicentennial Park" },
-    { k: "crate", n: "Big crate", have: 5000, need: 5000, from: "Ready to open" },
+    { k: "crate", n: "Big crate", have: 5000, need: 5000, from: "Monday crate" },
     { k: "crate", n: "Small crate", have: 214, need: 2000, from: "Drop, Long Beach Trail" },
   ];
-  $("#crateList").innerHTML = rows.map((c, i) => `<div class="crate" data-i="${i}"><div class="img"><img src="${snapshot(c.k, 200, 0)}" alt=""></div><div class="t"><b>${c.n}</b><span>${c.have >= c.need ? "Ready" : fmt(c.need - c.have) + " steps to go"} · ${c.from}</span><div class="bar"><i style="width:${Math.min(100, (c.have / c.need) * 100)}%"></i></div></div>${c.have >= c.need ? `<button class="open">Open</button>` : ""}</div>`).join("");
+  $("#crateList").innerHTML = rows.map((c, i) => `<div class="crate" data-i="${i}"><div class="img"><img src="${snapshot(c.k, 200, 0)}" alt=""></div><div class="t"><b>${c.n}</b><span>${c.have >= c.need ? "Ready to open" : fmt(c.need - c.have) + " steps to go · " + c.from}</span><div class="bar"><i style="width:${Math.min(100, (c.have / c.need) * 100)}%"></i></div></div>${c.have >= c.need ? `<button class="open">Open</button>` : ""}</div>`).join("");
   const ob = $("#crateList .open");
   if (ob) ob.onclick = () => { const row = ob.closest(".crate"); row.querySelector(".img img").style.transition = "transform .5s"; row.querySelector(".img img").style.transform = "scale(1.3) rotate(-8deg)";
     setTimeout(() => openCollect({ kind: "medal", rarity: "rare", pts: 30, steps: 5000, crate: null, id: "crate" }), 450); };
 }
 
 /* ------------------------------------------------------------------ gym hunt */
-let gym = null;
+let gym = null, gymP = null;
 async function gymScene() {
   if (!gym) {
-    gym = await createPhotoScene($("#gymGL"), {
-      img: "img/gym-chelsea-heights-07.jpg", depth: "img/gym-chelsea-heights-07-depth.png", hfov: 78, near: 1.6, far: 16, gamma: 1.1, sway: 0.75, light: 1.0,
+    if (gymP) { await gymP; gym.look(0.13); return; }
+    gymP = createPhotoScene($("#gymGL"), {
+      img: "img/gym-chelsea-heights-07.jpg", depth: "img/gym-chelsea-heights-07-depth.png", hfov: 78, near: 1.6, far: 16, gamma: 1.1, sway: 0.6, light: 1.0,
       targets: [{ id: "key", u: 0.637, v: 0.6, behind: 0.9, kind: "key", size: 0.5, lift: 0.45, beam: "gym", beamHeight: 3.2, beamRadius: 0.22 }],
       onFrame: (ts) => { const t = ts[0]; if (!t.screen) return; edgeArrow($("#gymArrow"), t.screen, $("#s-gym"));
-        const r = $("#s-gym").getBoundingClientRect(), inView = Math.abs(t.screen.x) < 0.7;
+        const r = { width: $("#s-gym").clientWidth, height: $("#s-gym").clientHeight }, inView = Math.abs(t.screen.x) < 0.7;
         $("#gymRet").style.opacity = inView ? 1 : 0; $("#gymRet").style.left = ((t.screen.x + 1) / 2) * r.width + "px"; $("#gymRet").style.top = ((1 - t.screen.y) / 2) * r.height - 25 + "px";
         $("#gymHint").textContent = inView ? "Behind the plate tree. Tap it, or drag to see around the machine." : "Something's glowing behind the machines. Drag to look around."; },
       onCollect: () => openCollect({ kind: "key", rarity: "gym", pts: 45, steps: 0, crate: "Small crate", id: "gymkey" }, { gym: true, pts: 45 }),
-    });
-    const clue = $("#clueImg"); const div = document.createElement("div");
+    }); gym = await gymP;
+    const clue = $("#clueImg"); if (clue) { const div = document.createElement("div");
     div.style.cssText = "width:128px;height:96px;background:url(img/gym-chelsea-heights-07.jpg) 66% 62%/520% auto no-repeat";
-    clue.replaceWith(div);
+    clue.replaceWith(div); }
   }
   gym.look(0.13); window.__dbg.gym = gym;
 }

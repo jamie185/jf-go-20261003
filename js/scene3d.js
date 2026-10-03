@@ -18,7 +18,7 @@ export function beamMesh(color = BEAM.gold, height = 8, radius = 0.32) {
       void main(){ vUv=uv; vec4 mv=modelViewMatrix*vec4(position,1.); vN=normalize(normalMatrix*normal); vV=normalize(-mv.xyz); gl_Position=projectionMatrix*mv; }`,
     fragmentShader: `uniform float uTime; uniform vec3 uColor; uniform float uFade; varying vec2 vUv; varying vec3 vN; varying vec3 vV;
       void main(){ float rim=pow(abs(dot(vN,vV)),1.6); float h=vUv.y;
-        float fall=smoothstep(1.,.15,h)*smoothstep(0.,.04,h);
+        float fall=(1.-smoothstep(.15,1.,h))*smoothstep(0.,.04,h);
         float streak=.75+.25*sin(h*38.-uTime*5.)*sin(h*9.+uTime*1.3);
         float core=rim*fall*streak; vec3 c=mix(uColor,vec3(1.),rim*.55);
         gl_FragColor=vec4(c*core*1.25*uFade, core*uFade); }`,
@@ -85,7 +85,7 @@ export async function createPhotoScene(canvas, o) {
 
   const resize = () => { const r = canvas.getBoundingClientRect(); const w = Math.max(1, r.width), h = Math.max(1, r.height); renderer.setSize(w, h, false); camera.aspect = w / h;
     /* vertical fov chosen so the photo's height fills the view */
-    camera.fov = Math.min(o.vfov || 999, 2 * Math.atan(ty * (o.crop ?? 0.86)) * 180 / Math.PI); camera.updateProjectionMatrix(); };
+    const c = o.crop ?? 0.86; camera.fov = Math.min(o.vfov || 999, 2 * Math.atan(Math.min(ty * c, tx * c / camera.aspect)) * 180 / Math.PI); camera.updateProjectionMatrix(); };
   resize(); const ro = new ResizeObserver(resize); ro.observe(canvas);
 
   /* input: drag to look; device orientation when granted */
@@ -98,8 +98,13 @@ export async function createPhotoScene(canvas, o) {
   function pick(e) {
     const r = canvas.getBoundingClientRect(); const m = new THREE.Vector2(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
     ray2.setFromCamera(m, camera);
-    for (const t of targets) { if (!t.trinket) continue; const hit = ray2.intersectObject(t.trinket, true)[0];
-      const sp = t.grp.position.clone().add(new THREE.Vector3(0, t.lift ?? 0.35, 0)).project(camera); const near2 = Math.hypot(sp.x - m.x, (sp.y - m.y) / camera.aspect) < 0.16;
+    for (const t of targets) { if (!t.trinket || !t.grp.visible) continue;
+      const centre = t.grp.position.clone().add(new THREE.Vector3(0, t.lift ?? 0.35, 0));
+      /* hidden behind the photo's own geometry (a machine, a tree)? then it can't be tapped yet */
+      const toT = centre.clone().sub(camera.position), dT = toT.length(); const occ = new THREE.Raycaster(camera.position, toT.normalize(), 0.05, dT - 0.15).intersectObject(photo)[0];
+      if (occ) continue;
+      const hit = ray2.intersectObject(t.trinket, true)[0]; const sp = centre.clone().project(camera);
+      const near2 = sp.z < 1 && Math.hypot(sp.x - m.x, (sp.y - m.y) / camera.aspect) < 0.16;
       if (hit || near2) { o.onCollect && o.onCollect(t); return; } }
   }
   let gyro = null;
@@ -117,7 +122,7 @@ export async function createPhotoScene(canvas, o) {
     /* a person turning also shifts a little: translation gives the parallax that reveals what's behind */
     const sway = o.sway ?? 0.55;
     camera.position.set(Math.sin(state.yaw) * sway + Math.sin(t * 0.7) * 0.015, Math.sin(t * 0.9) * 0.01 + (o.eye || 0), 0);
-    camera.rotation.set(-state.pitch, -state.yaw, 0, "YXZ");
+    camera.rotation.set(-state.pitch, -state.yaw, 0, "YXZ"); camera.updateMatrixWorld(true);
     for (const tg of targets) {
       if (tg.trinket) { tg.trinket.rotation.y = t * 0.9; tg.trinket.position.y = (tg.lift ?? 0.35) + Math.sin(t * 1.8) * 0.05; }
       if (tg.beam) tg.beam.userData.tick(t);
@@ -131,6 +136,7 @@ export async function createPhotoScene(canvas, o) {
   return {
     targets, enableGyro, state, camera, scene, renderer,
     look(yaw, smooth) { state.targetYaw = yaw; if (!smooth) state.yaw = yaw; },
+    setKind(id, kind) { const t = targets.find((x) => x.id === id); if (!t || !t.trinket || t.kind === kind) return; t.grp.remove(t.trinket); const n = buildTrinket(kind); n.scale.multiplyScalar(t.size || 0.55); n.position.y = t.lift ?? 0.35; t.grp.add(n); t.trinket = n; t.kind = kind; },
     dispose() { state.alive = false; cancelAnimationFrame(raf); ro.disconnect(); removeEventListener("deviceorientation", onOri); renderer.dispose(); },
   };
 }

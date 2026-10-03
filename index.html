@@ -43,9 +43,9 @@ h3{font:600 28px/1.08 var(--f);letter-spacing:-.02em}
 .phone iframe,.phone img{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:48px;background:#F2F3F7}
 .phone .isl{position:absolute;top:11px;left:50%;width:124px;height:36px;margin-left:-62px;background:#000;border-radius:20px;z-index:3;pointer-events:none}
 .heroPhone{display:flex;flex-direction:column;align-items:center;gap:22px}
-.jump{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:470px}
-.jump button{font:600 13px/1 var(--f);height:34px;padding:0 13px;border-radius:17px;border:0;background:var(--canvas);color:var(--ink2);cursor:pointer}
-.jump button.on{background:var(--dark);color:#fff}
+.jump{display:flex;gap:2px 16px;flex-wrap:wrap;justify-content:center;max-width:470px}
+.jump button{font:600 14px/1 var(--f);padding:8px 0;border:0;background:none;color:var(--ink3);cursor:pointer;border-bottom:2px solid transparent}
+.jump button.on{color:var(--ink);border-bottom-color:var(--ink)}
 @media (max-width:1100px){.hero{grid-template-columns:1fr}.heroPhone{order:2}h1{font-size:60px}h2{font-size:44px}}
 @media (max-width:520px){.wrap{padding:0 18px}section{padding:100px 0}h1{font-size:46px}h2{font-size:38px}h3{font-size:24px}.lede{font-size:19px}.phone{transform:scale(.82);margin-bottom:-150px}}
 
@@ -118,6 +118,7 @@ h3{font:600 28px/1.08 var(--f);letter-spacing:-.02em}
 @media (max-width:900px){.ph{grid-template-columns:1fr;gap:14px}}
 
 .qs{margin-top:60px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.qs .q:last-child:nth-child(odd){grid-column:1/-1}
 .q{border-radius:24px;padding:30px;background:var(--card)}
 .q b{display:block;font:600 20px/1.25 var(--f);letter-spacing:-.01em}
 .q p{font:500 16px/1.45 var(--f);color:var(--ink2);margin-top:8px}
@@ -138,12 +139,12 @@ h3{font:600 28px/1.08 var(--f);letter-spacing:-.02em}
       <h1>Steps, with<br>somewhere to go.</h1>
       <p class="lede">JF Go puts small things in real parks near our clients. You only get them by walking there. One goal: more daily steps.</p>
       <div class="btns"><a class="btn" href="app.html">Open the full prototype</a><a class="btn light" href="ar.html">Try the beam outside</a></div>
-      <p class="proof">A concept for JF Coach, built 3 October 2026. Nothing here is in the app. Fixture data only.</p>
+      <p class="proof">A concept for JF Coach, built 3 October 2026. Nothing here is in the app. Sample data only.</p>
     </div>
     <div class="heroPhone reveal">
       <div class="phone"><div class="isl"></div><iframe id="live" src="app.html?solo#lock" title="JF Go prototype" loading="eager"></iframe></div>
       <div class="jump" id="jump">
-        <button data-s="lock" class="on">The ding</button><button data-s="map">Drops</button><button data-s="walk">Walk there</button><button data-s="cam">Beam</button><button data-s="collect">Collect</button><button data-s="crates">Crates</button><button data-s="blocks">Blocks</button><button data-s="gym">Gym hunt</button>
+        <button data-s="lock" class="on">Reminder</button><button data-s="map">Drops</button><button data-s="walk">Walk there</button><button data-s="cam">Beam</button><button data-s="collect">Collect</button><button data-s="crates">Crates</button><button data-s="blocks">Blocks</button><button data-s="gym">Gym hunt</button>
       </div>
     </div>
   </div>
@@ -153,46 +154,46 @@ h3{font:600 28px/1.08 var(--f);letter-spacing:-.02em}
   <div class="wrap">
     <div class="center reveal">
       <h2>Pokémon Go got people walking.<br>For about six weeks.</h2>
-      <p class="lede">The research is clear on the spike and the fade. So JF Go keeps what lasted: walking that counts anywhere, goals that fit the person, and a team to walk for.</p>
+      <p class="lede">The early bump is well documented, and so is how quickly it faded. JF Go leans on the things that held up longer in step trials: walking that counts anywhere, goals that fit the person, and a team to walk for.</p>
     </div>
     <div class="stats">
-      <div class="stat reveal" style="background:#fff"><b>+955</b><p>extra steps a day in week one for players, against non-players.</p><small>Howe et al., BMJ 2016. 1,182 adults. Gone by week six.</small></div>
-      <div class="stat reveal" style="background:#fff"><b>+1,473</b><p>extra steps a day for the most engaged players, about 26% more.</p><small>Althoff et al., JMIR 2016. 31,793 wearable users.</small></div>
-      <div class="stat reveal" style="background:#fff"><b>+920</b><p>extra steps a day over 24 weeks, from a team competition built with behavioural science.</p><small>STEP UP trial, JAMA Intern Med 2019. 602 adults.</small></div>
-      <div class="stat reveal" style="background:#fff"><b>59%</b><p>more steps in the 30 minutes after a well-timed walking nudge. The effect wears off if you overdo it.</p><small>HeartSteps, Ann Behav Med 2019. 44 adults.</small></div>
+      <div class="stat reveal" style="background:#fff"><b>+955</b><p>extra steps a day in week one for players, against non-players. No longer evident by week six.</p><small>Howe et al., BMJ 2016. 1,182 adults, observational.</small></div>
+      <div class="stat reveal" style="background:#fff"><b>+1,473</b><p>extra steps a day for the most engaged players over their first month, about 26% more.</p><small>Althoff et al., JMIR 2016. 1,420 players among 31,793 wearable users.</small></div>
+      <div class="stat reveal" style="background:#fff"><b>+920</b><p>extra steps a day over 24 weeks, in the competition arm of a behaviourally designed game.</p><small>STEP UP trial, JAMA Intern Med 2019. 602 adults, randomised.</small></div>
+      <div class="stat reveal" style="background:#fff"><b>+868</b><p>extra steps a day over 12 months when a game was combined with small rewards.</p><small>BE ACTIVE trial, Circulation 2024. 1,062 adults, randomised.</small></div>
     </div>
-    <p class="lede reveal" style="margin:40px auto 0;text-align:center;font-size:19px;max-width:820px">What worked longest wasn't the map. It was progress that comes from ordinary walking (Pokémon's eggs), goals relative to your own normal, and a small group. Those are the bones of JF Go. The map and the camera make it fun to start.</p>
+    <p class="lede reveal" style="margin:40px auto 0;text-align:center;font-size:19px;max-width:820px">The longer trials point at progress from ordinary walking, goals relative to your own normal, and a small group. Those are the bones of JF Go. The map and the camera are there to get people started, and the pilot will tell us if they do.</p>
   </div>
 </section>
 
 <section id="how">
   <div class="wrap">
-    <div class="reveal"><h2>Four things.<br>All of them are steps.</h2><p class="lede">It lives inside the Challenge tab you already have, as the live mode of the club map. Same points, levels, inventory and JFmoji.</p></div>
+    <div class="reveal"><h2>Four things.<br>All built around walking.</h2><p class="lede">It lives inside the Challenge tab you already have, as the live mode of the club map. Same points, levels, inventory and JFmoji.</p></div>
     <div class="mech">
       <div class="m reveal"><div class="t"><div class="k" style="background:rgba(245,165,36,.16)"><img id="k1" alt=""></div><h3>Drops</h3><p>Three a day, on footpaths inside real parks, 400 m to 1.5 km from your home area. You have to be there to open one. No ticking it off from the couch.</p>
-        <ul><li>Shown in steps, not just metres</li><li>A shared rare drop each week for your gym</li><li>An optional "10 push-ups here?" bonus</li></ul></div><img class="shot" src="img/shot-map.jpg" alt="Drops on the map"></div>
+        <ul><li>Shown in steps, not just metres. The camera is optional.</li><li>A shared rare drop each week for your gym</li><li>An optional "10 push-ups here?" bonus</li></ul></div><img class="shot" src="img/shot-map.jpg" alt="Drops on the map"></div>
       <div class="m reveal"><div class="t"><div class="k" style="background:rgba(139,212,42,.18)"><img id="k2" alt=""></div><h3>Crates</h3><p>Drops give sealed crates. Crates open with steps walked anywhere: 2,000, 5,000 or 10,000. The dog walk counts. The shops count.</p>
-        <ul><li>This is Pokémon's egg, the strongest walking mechanic</li><li>Carry three at most, so you keep walking them open</li><li>Inside: trinkets, JFmoji wearables, points</li></ul></div><img class="shot" src="img/shot-crates.jpg" alt="Crates"></div>
+        <ul><li>Inspired by Pokémon's eggs: progress from everyday walking</li><li>A free crate every Monday, so normal walking always pays</li><li>Inside: trinkets, JFmoji wearables, points</li></ul></div><img class="shot" src="img/shot-crates.jpg" alt="Crates"></div>
       <div class="m reveal"><div class="t"><div class="k" style="background:rgba(77,163,255,.16)"><svg width="30" viewBox="0 0 24 24"><path d="M7 3.5h10l5 8.5-5 8.5H7L2 12z" fill="#4DA3FF"/></svg></div><h3>Blocks</h3><p>Your walks paint the map in your gym's colour. A block belongs to whichever gym walked it most this week, so it fades unless people keep walking there.</p>
         <ul><li>Gym against gym, scored fairly for small gyms</li><li>Never shows a person, only a gym colour</li><li>Your home block never records you</li></ul></div><img class="shot" src="img/shot-blocks.jpg" alt="Blocks"></div>
-      <div class="m reveal"><div class="t"><div class="k" style="background:rgba(155,225,93,.2)"><img id="k4" alt=""></div><h3>Gym drops</h3><p>Gabrielle's idea. During a booked session, something's hidden in the gym, worth 3×. A small JF plaque on a machine, moved weekly by the trainer. The camera finds it.</p>
-        <ul><li>Only counts inside a session, at that gym</li><li>The clue is a photo of the corner</li><li>The code rotates weekly, so a shared photo won't work</li></ul></div><img class="shot" src="img/shot-gym.jpg" alt="Gym hunt"></div>
+      <div class="m reveal"><div class="t"><div class="k" style="background:rgba(155,225,93,.2)"><img id="k4" alt=""></div><h3>Gym drops</h3><p>Gabrielle's idea. As a booked session ends, something's hidden in the gym, worth 3×. A small JF plaque on a machine, moved weekly by the trainer. The camera finds it.</p>
+        <ul><li>Shows as the session ends, so nobody's on their phone mid-set</li><li>The clue is a photo of the corner</li><li>Last week's code expires, and a scan only counts after your own session there</li></ul></div><img class="shot" src="img/shot-gym.jpg" alt="Gym hunt"></div>
     </div>
   </div>
 </section>
 
 <section id="ar" class="dark">
   <div class="wrap">
-    <div class="reveal"><h2>Can we actually do AR?<br>Yes. Here's how far.</h2><p class="lede">The meal scanner already uses the camera inside JF Coach, and Three.js is already in the app. So the first version needs no new native code apart from the location permission.</p>
+    <div class="reveal"><h2>Can we actually do AR?<br>Yes. Here's how far.</h2><p class="lede">The meal scanner already uses the camera inside JF Coach, and Three.js is already in the app. So the first beam runs in the web layer. It needs the location permission in a native release, and testing on real phones.</p>
       <div class="btns"><a class="btn light" href="ar.html">Try the live beam on your phone</a></div></div>
     <div class="tiers">
-      <div class="tier reveal"><b>Version 1</b><h3>The beam</h3><p>Camera, compass and GPS in the web app. A column of light stands where the drop is, an arrow turns you toward it, and the trinket appears when you're within about 20 m. That's the page linked above. It works on your phone tonight.</p><div class="eff">Ships with a normal app release plus the location permission.</div></div>
-      <div class="tier reveal"><b>Version 2</b><h3>Pinned to the machine</h3><p>Native ARKit and ARCore recognise the JF plaque, so the trinket sits on the machine and stays put as you move. It can hide behind the machine for real.</p><div class="eff">A custom Capacitor plugin, iPhone first. About 2 to 3 weeks of dev.</div></div>
-      <div class="tier reveal"><b>Version 3</b><h3>The gym in 3D</h3><p>A trainer films a slow 60-second walk through the gym. That becomes a 3D scan (Gaussian splat) you can look around in the app. It doubles as a "see the gym before your free session" tour for leads.</p><div class="eff">About half a day per gym once the pipeline exists.</div></div>
+      <div class="tier reveal"><b>Version 1</b><h3>The beam</h3><p>Camera, compass and GPS in the web app. A column of light points toward the drop, an arrow turns you to it, and the trinket appears when you're within 20 m. That's the page linked above. Try it on your phone outside.</p><div class="eff">Needs the location permission in a native release, then device testing.</div></div>
+      <div class="tier reveal"><b>Version 2</b><h3>Pinned to the machine</h3><p>Native ARKit and ARCore recognise the JF plaque, so the trinket sits on the machine and stays put as you move. On phones with depth sensing it can hide behind the machine too.</p><div class="eff">A custom Capacitor plugin. About 2 weeks for an iPhone prototype, 5 to 8 weeks for both platforms.</div></div>
+      <div class="tier reveal"><b>Version 3</b><h3>The gym in 3D</h3><p>A trainer films a slow walk around one area of the gym. That becomes a 3D scan (Gaussian splat) you can look around in the app. It could double as a "see the gym before your free session" tour for leads.</p><div class="eff">Half a day to a day per area once the pipeline works.</div></div>
     </div>
     <div class="arrow3">
-      <figure class="reveal"><iframe src="look.html?s=gym" loading="lazy" title="Gym hunt in 3D"></iframe><figcaption><b>Your idea, built from Snap's own photos.</b> We took the Chelsea Heights photo from Snap's club page and ran it through an AI depth model on the workbench GPU. The result is a 3D room. The key really is behind the plate tree: drag the scene and it peeks out from behind the plates, because the machines really are in front of it.</figcaption></figure>
-      <figure class="reveal"><iframe src="look.html?s=park" loading="lazy" title="Park beam in 3D"></iframe><figcaption><b>Same trick in a park.</b> The beam rises from where the path disappears into the trees, and the trees hide its base. From five to fifteen website photos you get a convincing room you can look around. A full walk-through needs a short video instead, which is version 3.</figcaption></figure>
+      <figure class="reveal"><iframe src="look.html?s=gym" loading="lazy" title="Gym hunt in 3D"></iframe><figcaption><b>Your idea, built from Snap's own photos.</b> We took one Chelsea Heights photo from Snap's club page and ran it through an AI depth model on the workbench GPU. The photo now behaves like 3D: drag and things shift, and the green glow sits behind the plate tree, hidden by the machines in front of it.</figcaption></figure>
+      <figure class="reveal"><iframe src="look.html?s=park" loading="lazy" title="Park beam in 3D"></iframe><figcaption><b>Same trick in a park.</b> The beam rises from where the path disappears, and the trees hide its base. One photo gets you this much. A proper walk-around needs overlapping video, which is version 3.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -201,12 +202,12 @@ h3{font:600 28px/1.08 var(--f);letter-spacing:-.02em}
   <div class="wrap split">
     <div class="reveal">
       <h2>Territory,<br>for gyms.</h2>
-      <p class="lede" id="intvlLine">The running app you were thinking of is INTVL, made in Australia: run a loop and the area inside becomes yours. JF Go borrows the feeling and makes it fit walkers and a gym.</p>
+      <p class="lede" id="intvlLine">The app you were thinking of is INTVL, from Melbourne: close a loop and the ground inside is yours. It claims 2.5 million downloads. Its reviews say it gets people "out and about walking", and also that it's "very bro-ey and combative", "needs to be loads simpler", and that runners wipe out walkers. So JF Go keeps the feeling and fixes those.</p>
       <div class="rules">
         <div class="rule"><b>Blocks, not loops.</b> The map is cut into hexagons about 350 m across. Walking through counts. You don't need to plan a loop, so any walk helps.</div>
         <div class="rule"><b>Held by walking, not by being first.</b> A block belongs to the gym with the most steps in it over the last 7 days. Stop walking there and it fades back to grey.</div>
         <div class="rule"><b>Fair to small gyms.</b> Weekly score = blocks held ÷ √members. Chelsea Heights' 18 walkers can beat a gym of 40.</div>
-        <div class="rule"><b>Private by design.</b> Gym colours only, a day late, never names or routes. Your home block and the ring around it never record your walks.</div>
+        <div class="rule"><b>Built for privacy.</b> Gym colours only, a day late, never names or routes. A block only shows once three or more people from that gym have walked it. Your home block and the ring around it never record your walks.</div>
       </div>
     </div>
     <div class="shots reveal"><img src="img/shot-blocks.jpg" alt="Blocks map"><img src="img/shot-challenge.jpg" alt="Challenge tab"></div>
@@ -215,23 +216,23 @@ h3{font:600 28px/1.08 var(--f);letter-spacing:-.02em}
 
 <section style="background:var(--canvas)">
   <div class="wrap">
-    <div class="center reveal"><h2>Not a video game.<br>Not cringe.</h2><p class="lede">Plain words, real places, one ding a day. No battles, no factions, no streak guilt.</p></div>
+    <div class="center reveal"><h2>Built around the walk.<br>Not a video game.</h2><p class="lede">Plain words, real places, one reminder a day at most. No battles, no factions, no streak guilt.</p></div>
     <div class="cols">
       <div class="col reveal" style="background:#fff"><h3>Fair play</h3><ul>
         <li><b>You have to be there.</b> GPS within about 40 m, accuracy 65 m or better.</li>
         <li><b>On foot for the last 300 m.</b> Walking speed, no 25 km/h segments.</li>
         <li><b>Steps have to match.</b> At least 60% of the steps the distance needs.</li>
         <li><b>Drove most of the way?</b> Walk the last bit and it still counts, at half points.</li>
-        <li><b>Fake GPS apps</b> are flagged by the phone itself and rejected.</li></ul></div>
+        <li><b>Locations the phone marks as faked</b> are rejected. A determined cheat can still get through, so prizes stay small.</li></ul></div>
       <div class="col reveal" style="background:#fff"><h3>Safety</h3><ul>
         <li><b>Public open space only:</b> park paths, reserves, trails. From OpenStreetMap.</li>
-        <li><b>Never</b> on roads, rail, water edges, schools, playgrounds or private land.</li>
+        <li><b>Never</b> on roads, rail, water edges, schools, playgrounds or private land. Every candidate spot gets a human check before launch.</li>
         <li><b>Daylight only.</b> Nothing shows above 20 km/h.</li>
         <li><b>No nudges</b> in rain, heat over 32° or at night.</li>
         <li><b>Accessibility:</b> set your furthest drop and step-free places only.</li></ul></div>
       <div class="col reveal" style="background:#fff"><h3>Privacy</h3><ul>
         <li><b>Home area is a suburb,</b> never an address.</li>
-        <li><b>Routes stay on the phone.</b> The server gets the claim point and block totals.</li>
+        <li><b>Routes stay on the phone.</b> A claim sends only the last few hundred metres, and block totals.</li>
         <li><b>Claim points are deleted</b> after 30 days.</li>
         <li><b>Trainers see</b> drops collected and steps, never places or routes.</li>
         <li><b>The existing map privacy tests</b> extend to drops and blocks.</li></ul></div>
@@ -241,16 +242,16 @@ h3{font:600 28px/1.08 var(--f);letter-spacing:-.02em}
 
 <section id="build">
   <div class="wrap">
-    <div class="reveal"><h2>What it takes.</h2><p class="lede">The backend engine is already written and tested (below). The real work is the native location permission, the app screens and a careful pilot.</p></div>
+    <div class="reveal"><h2>What it takes.</h2><p class="lede">A reference rules engine is written and passes its tests (below). The real build is wiring it into the live API, storage and Apple Health, the native location permission, the app screens, and a careful pilot.</p></div>
     <div class="plan">
-      <div class="ph reveal"><div class="w">Pilot<small>about 3 weeks of dev</small></div><p><b>Drops, crates and the beam.</b> A location-claim endpoint, the walking check, crates opened by Health steps, the camera beam, and the "you're behind on steps" ding. Location permission ("While Using") goes into the next native release. The current map secrets also become location-checked, which fixes the couch-ticking.</p><div class="e">Two gyms, volunteers<span>2-week step baseline, then 4 weeks live</span></div></div>
-      <div class="ph reveal"><div class="w">Phase 2<small>about 2 weeks</small></div><p><b>Blocks and gym drops.</b> Territory from walks with the app open, the weekly gym table, and a JF plaque in each gym (about $10 a plaque, if Snap is happy with it).</p><div class="e">All 17 gyms<span>Only if the pilot moves steps</span></div></div>
-      <div class="ph reveal"><div class="w">Phase 3<small>2 to 3 weeks</small></div><p><b>Native AR.</b> Trinkets pinned to the plaque with ARKit (iPhone first), then ARCore. Optional 3D gym scans, which double as tours for new leads.</p><div class="e">Stretch<span>Only if people use the camera</span></div></div>
+      <div class="ph reveal"><div class="w">Pilot<small>14 to 22 dev days</small></div><p><b>Drops, crates and the beam.</b> A location-claim endpoint, the walking check, crates opened by Health steps, the camera beam, and the "you're below your usual steps" reminder. Location permission ("While Using") goes into the next native release.</p><div class="e">Two gyms, volunteers<span>2-week step baseline, then 4 weeks live</span></div></div>
+      <div class="ph reveal"><div class="w">Phase 2<small>20 to 35 dev days</small></div><p><b>Blocks and gym drops.</b> Territory from walks with the app open, the weekly gym table, and a JF plaque in each gym (about $5 to $15 each, if Snap is happy with it).</p><div class="e">All 17 gyms<span>Only if the pilot moves steps</span></div></div>
+      <div class="ph reveal"><div class="w">Phase 3<small>2 to 8 weeks</small></div><p><b>Native AR.</b> Trinkets pinned to the plaque with ARKit (iPhone first), then ARCore. Optional 3D gym scans, which double as tours for new leads.</p><div class="e">Stretch<span>Only if people use the camera</span></div></div>
     </div>
     <div class="stats" style="margin-top:16px;grid-template-columns:1fr 1fr 1fr">
       <div class="stat reveal"><b id="simA">+1,000</b><p>steps a day still there in week 4, against each person's own baseline. That's the bar for going wider.</p><small>Points, blocks and trinkets don't count as success. Steps do.</small></div>
-      <div class="stat reveal"><b>16</b><p>points a day for 8,000 steps today. A drop is 10 plus 2 per 100 m walked, so it adds without swamping workouts and habits.</p><small>Gold ×2. Gym drops 15 × 3. Map secrets stay at 200.</small></div>
-      <div class="stat reveal"><b id="testsN">Tested</b><p id="testsP">Backend engine: drops, claims, crates, blocks and gym drops, with a 4-week simulation of 40 clients across three gyms.</p><small>Plain Node, no dependencies. Not connected to anything live.</small></div>
+      <div class="stat reveal"><b>250</b><p>Go points a week at most. Steps already earn 16 a day at 8,000, and a drop is 10 plus 2 per 100 m, so Go adds to the challenge without swamping workouts and habits.</p><small>Gold ×2. Gym drops 15 × 3 = 45. Map secrets stay at 200.</small></div>
+      <div class="stat reveal"><b id="testsN">49/49</b><p id="testsP">tests passing in the reference engine: drops, claims, crates, blocks and gym drops, plus a 4-week simulation of 40 sample clients. Every injected cheat (driver, spoofer, couch, teleport) was rejected.</p><small>Plain Node, no dependencies. Not connected to anything live.</small></div>
     </div>
   </div>
 </section>
@@ -262,6 +263,7 @@ h3{font:600 28px/1.08 var(--f);letter-spacing:-.02em}
       <div class="q reveal" style="background:#fff"><b>The name</b><p>"JF Go" is the working name, from your message. Inside the app it's just "Go" on the club map. Drops, crates and blocks are the only new words.</p></div>
       <div class="q reveal" style="background:#fff"><b>JF+ or everyone?</b><p>Suggested: drops, crates and blocks free for every client, because steps matter for everyone. JF+ adds gold drops, a fourth crate slot and the seasonal sets.</p></div>
       <div class="q reveal" style="background:#fff"><b>Plaques in Snap gyms</b><p>Gym drops need a small sticker on a machine in each club. That probably needs a yes from each Snap owner.</p></div>
+      <div class="q reveal" style="background:#fff"><b>Map secrets: stay virtual?</b><p>Right now the hidden challenges on the map can be ticked from home, by design. Go drops fix that for the new layer. Want the old secrets location-checked too?</p></div>
       <div class="q reveal" style="background:#fff"><b>Which two gyms pilot</b><p>The prototype uses Chelsea Heights. The client who asked Gabrielle about the city hunts is the obvious first volunteer, plus anyone else who opts in.</p></div>
     </div>
   </div>
@@ -269,7 +271,7 @@ h3{font:600 28px/1.08 var(--f);letter-spacing:-.02em}
 
 <div class="wrap foot">
   <p>Map data © OpenStreetMap contributors (ODbL). Park photo: "Darebin Creek Trail near Bundoora Park" by Philip Mallis, CC BY-SA 2.0, via Wikimedia Commons; depth by Depth Anything V2. Gym photo: Snap Fitness Chelsea Heights club page, used here only as an internal concept. Trinkets are procedural 3D (Three.js, MIT).</p>
-  <p style="margin-top:8px">Research: Howe et al. BMJ 2016;355:i6270 · Althoff, White &amp; Horvitz, JMIR 2016;18(12):e315 · Patel et al. JAMA Intern Med 2019 (STEP UP) · Klasnja et al. Ann Behav Med 2019 (HeartSteps) · Fanaro et al. Circulation 2024 (BE ACTIVE). Full notes, the spec and the backend live in the project folder on the workbench.</p>
+  <p style="margin-top:8px">Research: Howe et al. BMJ 2016;355:i6270 · Althoff, White &amp; Horvitz, JMIR 2016;18(12):e315 · Patel et al. JAMA Intern Med 2019 (STEP UP) · Fanaroff et al. Circulation 2024 (BE ACTIVE) · Klasnja et al. Ann Behav Med 2019 (HeartSteps). Figures come from our research notes; check the papers before quoting them outside the business. Full notes, the spec and the backend live in the project folder on the workbench.</p>
 </div>
 
 <script type="module">

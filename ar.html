@@ -13,7 +13,8 @@
   *{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
   html,body{height:100%;background:#000;color:#fff;font:500 16px/1.35 var(--f);-webkit-font-smoothing:antialiased;overflow:hidden;overscroll-behavior:none}
   button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
-  #bg,#fx,#trk{position:fixed;inset:0;width:100%;height:100%}
+  #bg,#fx{position:fixed;inset:0;width:100%;height:100%}
+  #trk{position:fixed;left:0;top:0;width:200px;height:200px;margin:-150px 0 0 -100px;z-index:3;cursor:pointer}
   #bg{object-fit:cover;background:#111 url(img/park-02.jpg) 30% 50%/cover}
   #trk{pointer-events:none;opacity:0;transition:opacity .4s}
   #trk.on{opacity:1;pointer-events:auto}
@@ -46,8 +47,8 @@
   .btn{height:54px;border-radius:27px;padding:0 24px;display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 17px/1 var(--f);background:#fff;color:#111;margin-top:10px}
   .btn.dark{background:rgba(20,20,24,.5);color:#fff;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:inset 0 0 0 .5px rgba(255,255,255,.3)}
   .btns{display:flex;gap:10px;flex-wrap:wrap}
-  .seg{display:flex;gap:6px;margin:6px 0 4px}
-  .seg button{height:38px;padding:0 14px;border-radius:19px;background:rgba(255,255,255,.16);font:600 14px/1 var(--f)}
+  .seg{display:inline-flex;gap:2px;margin:6px 0 4px;padding:3px;border-radius:12px;background:rgba(255,255,255,.16);align-self:flex-start}
+  .seg button{height:34px;padding:0 16px;border-radius:9px;font:600 14px/1 var(--f)}
   .seg button.on{background:#fff;color:#111}
   /* got it */
   .got{position:fixed;inset:0;z-index:30;display:flex;align-items:flex-end;background:rgba(0,0,0,0);pointer-events:none;transition:background .4s}
@@ -77,7 +78,7 @@
 <div class="arrow r" id="ar"><svg viewBox="0 0 24 24" fill="none" stroke="#1F2025" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
 <div class="foot">
   <div class="hint" id="hint">Turn until the light is in front of you, then walk to it.</div>
-  <div class="stats"><div class="stat"><b id="st">0</b><small>steps since you started</small></div><div class="stat"><b id="wk">0 m</b><small>walked</small></div></div>
+  <div class="stats"><div class="stat"><b id="st">0</b><small>steps (phone estimate)</small></div><div class="stat"><b id="wk">0 m</b><small>walked</small></div></div>
   <div class="row"><button class="chip" id="move">Move the drop</button><button class="chip" id="sim" hidden>Walk (no GPS)</button></div>
 </div>
 <div class="log" id="log"></div>
@@ -112,11 +113,17 @@ const S = { heading: null, pitch: 90, pos: null, acc: null, start: null, drop: n
 $("#distSeg").onclick = (e) => { const b = e.target.closest("button"); if (!b) return; S.dropDist = +b.dataset.m; [...$("#distSeg").children].forEach((x) => x.classList.toggle("on", x === b)); };
 
 /* ---------------- sensors */
+function headingFromABG(a, b, g) {
+  /* W3C DeviceOrientation spec example: direction the back of the device faces, from absolute alpha/beta/gamma */
+  const x = rad(b || 0), y = rad(g || 0), z = rad(a || 0), cX = Math.cos(x), cY = Math.cos(y), cZ = Math.cos(z), sX = Math.sin(x), sY = Math.sin(y), sZ = Math.sin(z);
+  const Vx = -cZ * sY - sZ * sX * cY, Vy = -sZ * sY + cZ * sX * cY;
+  let h = Math.atan(Vx / Vy); if (Vy < 0) h += Math.PI; else if (Vx < 0) h += 2 * Math.PI; return deg(h);
+}
 function onOrient(e) {
   let h = null;
-  if (typeof e.webkitCompassHeading === "number") h = e.webkitCompassHeading;
-  else if (e.absolute && e.alpha != null) h = (360 - e.alpha) % 360;
-  if (h != null) { const so = (screen.orientation && screen.orientation.angle) || window.orientation || 0; h = (h + so + 360) % 360; S.heading = S.heading == null ? h : smoothAng(S.heading, h, 0.25); }
+  if (typeof e.webkitCompassHeading === "number" && e.webkitCompassAccuracy !== -1) h = e.webkitCompassHeading;
+  else if ((e.absolute || e.type === "deviceorientationabsolute") && e.alpha != null) h = headingFromABG(e.alpha, e.beta, e.gamma);
+  if (h != null && !S.manual) { S.heading = S.heading == null ? h : smoothAng(S.heading, h, 0.25); S.gotHeading = true; }
   if (e.beta != null) S.pitch += (e.beta - S.pitch) * 0.3;
 }
 const smoothAng = (a, b, k) => { let d = ((b - a + 540) % 360) - 180; return (a + d * k + 360) % 360; };
@@ -128,12 +135,17 @@ function onMotion(e) {
   if (!above && d > 1.25 && t - lastPeak > 280) { above = true; lastPeak = t; S.steps++; $("#st").textContent = S.steps.toLocaleString("en-AU"); }
   if (above && d < 0.2) above = false;
 }
-function onPos(p) {
-  const c = { lat: p.coords.latitude, lng: p.coords.longitude }; S.acc = p.coords.accuracy;
-  if (S.last && S.acc < 30) { const step = hav(S.last, c); if (step > 1.5 && step < 40) S.walked += step; }
-  if (!S.last || S.acc < 30) S.last = c;
-  S.pos = c; $("#acc").textContent = "GPS ±" + Math.round(S.acc) + " m"; $("#wk").textContent = fmtM(S.walked);
-  if (!S.drop) placeDrop();
+function onPos(p, simulated) {
+  if (!simulated && S.demo) return;                    /* never mix a simulated walk with real fixes */
+  const c = { lat: p.coords.latitude, lng: p.coords.longitude }, acc = p.coords.accuracy, t = Date.now();
+  S.acc = acc; $("#acc").textContent = "GPS ±" + Math.round(acc) + " m";
+  if (acc > 50) { $("#hint").textContent = "GPS is rough here (±" + Math.round(acc) + " m). Step into the open."; return; }
+  /* walked distance only counts real movement: both fixes good, the move bigger than their combined error, at walking pace */
+  if (S.last && acc <= 20) { const step = hav(S.last.c, c), dt = Math.max(1, (t - S.last.t) / 1000);
+    if (step > Math.max(6, acc + S.last.acc) && step / dt < 3.5) { S.walked += step; S.last = { c, acc, t }; } }
+  else if (!S.last || acc < S.last.acc) S.last = { c, acc, t };
+  S.pos = c; $("#wk").textContent = fmtM(S.walked);
+  if (!S.drop && acc <= 30) placeDrop();
 }
 function placeDrop() {
   if (!S.pos) return;
@@ -144,7 +156,9 @@ function placeDrop() {
 }
 $("#move").onclick = () => { S.drop = null; placeDrop(); };
 
+let started = false;
 async function start(demo) {
+  if (started) return; started = true; $("#go").disabled = $("#demo").disabled = true;
   S.demo = demo;
   if (!demo) {
     const asks = [];
@@ -157,21 +171,25 @@ async function start(demo) {
       const tr = st.getVideoTracks()[0], s = tr.getSettings ? tr.getSettings() : {}; log(`camera ${s.width || "?"}x${s.height || "?"}`);
     } catch (e) { log("camera: " + e.name); $("#hint").textContent = "No camera access, so this is the photo version. The beam still follows your compass."; }
     addEventListener("deviceorientationabsolute", onOrient); addEventListener("deviceorientation", onOrient); addEventListener("devicemotion", onMotion);
-    if ("geolocation" in navigator) navigator.geolocation.watchPosition(onPos, (e) => { log("gps: " + e.message); $("#acc").textContent = "No GPS"; demoGPS(); }, { enableHighAccuracy: true, maximumAge: 1000, timeout: 20000 });
+    if ("geolocation" in navigator) S.watch = navigator.geolocation.watchPosition((p) => onPos(p), (e) => { log("gps: " + e.message); if (!S.pos) { $("#acc").textContent = "No GPS"; demoGPS(); } }, { enableHighAccuracy: true, maximumAge: 1000, timeout: 20000 });
     else demoGPS();
+    /* no usable compass after 5 s (denied, or no absolute heading on this device): aim by dragging instead */
+    setTimeout(() => { if (!S.gotHeading) { S.manual = true; if (S.heading == null) S.heading = 0; dragLook(); $("#hint").textContent = "No compass on this phone, so drag to turn."; } }, 5000);
   } else { demoGPS(); S.heading = 0; dragLook(); }
   $("#intro").classList.add("gone");
   requestAnimationFrame(frame);
 }
-function demoGPS() { if (S.pos) return; S.demo = true; $("#sim").hidden = false; onPos({ coords: { latitude: -38.0254, longitude: 145.1374, accuracy: 6 } }); if (S.heading == null) { S.heading = 0; dragLook(); } }
-function dragLook() { let x0 = null, h0 = 0; addEventListener("pointerdown", (e) => { if (e.target.closest("button,a")) return; x0 = e.clientX; h0 = S.heading; }); addEventListener("pointermove", (e) => { if (x0 == null) return; S.heading = (h0 - (e.clientX - x0) * 0.2 + 360) % 360; }); addEventListener("pointerup", () => x0 = null); }
-$("#sim").onclick = () => { if (!S.drop) return; const b = brg(S.pos, S.drop), m = Math.min(15, hav(S.pos, S.drop)); const c = dest(S.pos, b, m); S.steps += Math.round(m / 0.75); $("#st").textContent = S.steps; onPos({ coords: { latitude: c.lat, longitude: c.lng, accuracy: 6 } }); };
+function demoGPS() { if (S.pos && !S.demo) return; if (S.watch != null) navigator.geolocation.clearWatch(S.watch); S.watch = null; S.demo = true; S.manual = true; S.drop = null; S.last = null; S.walked = 0;
+  $("#sim").hidden = false; onPos({ coords: { latitude: -38.0254, longitude: 145.1374, accuracy: 6 } }, true); if (S.heading == null) S.heading = 0; dragLook(); }
+let dragOn = false;
+function dragLook() { if (dragOn) return; dragOn = true; let x0 = null, h0 = 0; addEventListener("pointerdown", (e) => { if (e.target.closest("button,a")) return; x0 = e.clientX; h0 = S.heading; }); addEventListener("pointermove", (e) => { if (x0 == null) return; S.heading = (h0 - (e.clientX - x0) * 0.2 + 360) % 360; }); addEventListener("pointerup", () => x0 = null); }
+$("#sim").onclick = () => { if (!S.drop) return; const b = brg(S.pos, S.drop), m = Math.min(15, hav(S.pos, S.drop)); const c = dest(S.pos, b, m); S.steps += Math.round(m / 0.75); $("#st").textContent = S.steps; S.last = null; S.walked += m; onPos({ coords: { latitude: c.lat, longitude: c.lng, accuracy: 6 } }, true); };
 $("#go").onclick = () => start(false);
 $("#demo").onclick = () => start(true);
 
 /* ---------------- drawing */
 const cv = $("#fx"), g = cv.getContext("2d"); let W = 0, H = 0, DPR = 1;
-const size = () => { DPR = Math.min(devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight; cv.width = W * DPR; cv.height = H * DPR; $("#trk").width = W * DPR; $("#trk").height = H * DPR; };
+const size = () => { DPR = Math.min(devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight; cv.width = W * DPR; cv.height = H * DPR; };
 addEventListener("resize", size); size();
 let trk = null;
 /* soft beam + ground glow sprites, drawn once (canvas filters aren't reliable in Safari) */
@@ -187,13 +205,13 @@ function frame(t) {
   g.setTransform(DPR, 0, 0, DPR, 0, 0); g.clearRect(0, 0, W, H);
   if (!S.pos || !S.drop || S.heading == null) { $("#d").textContent = "…"; $("#hint").textContent = S.heading == null && !S.demo ? "Waiting for the compass. Wave the phone in a figure eight if it's stuck." : "Finding you…"; return; }
   const dist = hav(S.pos, S.drop), b = brg(S.pos, S.drop), rel = ((b - S.heading + 540) % 360) - 180;
-  const pxDeg = W / S.hfov, x = W / 2 + rel * pxDeg;
-  const horizon = H / 2 + (S.demo ? 0 : (S.pitch - 90) * (H / 66));
+  const fx = (W / 2) / Math.tan(rad(S.hfov / 2)), x = Math.abs(rel) < 80 ? W / 2 + fx * Math.tan(rad(rel)) : (rel < 0 ? -9999 : 9999);
+  const horizon = H / 2 + (S.manual ? 0 : fx * Math.tan(rad(Math.max(-40, Math.min(40, S.pitch - 90)))));
   $("#d").textContent = fmtM(dist);
   $("#blip").style.transform = `translate(${Math.sin(rad(rel)) * 24}px, ${-Math.cos(rad(rel)) * 24}px)`;
   const off = Math.abs(rel) > S.hfov / 2;
   $("#al").style.opacity = off && rel < 0 ? 1 : 0; $("#ar").style.opacity = off && rel > 0 ? 1 : 0;
-  const near = dist < Math.max(18, Math.min(S.acc || 20, 35));
+  const near = dist < 20 && (S.acc || 99) <= 30;
   /* the beam: wider and brighter as you close in, its foot sinks below the horizon when near */
   const w = Math.max(12, Math.min(70, 2200 / Math.max(dist, 8))), foot = horizon + Math.min(H * 0.32, 900 / Math.max(dist, 6));
   if (!off) {
@@ -207,7 +225,7 @@ function frame(t) {
   const T = $("#trk");
   if (near && !off && !S.got) {
     if (!trk) { trk = mountTrinket(T, "dumbbell", { speed: 1.1, shadow: false }); }
-    T.classList.add("on"); T.style.transform = `translate(${x - W / 2}px, ${foot - H * 0.62}px) scale(.34)`;
+    T.classList.add("on"); T.style.left = x + "px"; T.style.top = foot + "px";
     $("#hint").textContent = "It's here. Tap it.";
   } else {
     T.classList.remove("on");
@@ -224,7 +242,8 @@ $("#trk").addEventListener("click", () => {
   setTimeout(() => { if (!S._gotT) S._gotT = mountTrinket($("#gotc"), "dumbbell", { speed: 0.9 }); }, 60);
 });
 $("#again").onclick = () => { $("#got").classList.remove("on"); S.drop = null; placeDrop(); };
-function log(s) { $("#log").textContent = s; }
+const DEBUG = new URLSearchParams(location.search).has("debug");
+function log(s) { if (DEBUG) $("#log").textContent = s; }
 </script>
 </body>
 </html>
