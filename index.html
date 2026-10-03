@@ -37,7 +37,7 @@ h3{font:600 28px/1.08 var(--f);letter-spacing:-.02em}
 @media (max-width:900px){.nav a:not(.cta){display:none}}
 
 /* hero */
-.hero{padding:140px 0 120px;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.hero{padding:140px 0 120px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:60px;align-items:center}
 .hero .proof{margin-top:28px;font:600 15px/1.5 var(--f);color:var(--ink2)}
 .phone{position:relative;width:393px;height:852px;border-radius:58px;background:#0B0C0F;box-shadow:0 0 0 11px #0B0C0F,0 0 0 13px #2A2D33,0 50px 100px -40px rgba(10,20,40,.5);margin:0 auto;transform-origin:top center}
 .phone iframe,.phone img{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:48px;background:#F2F3F7}
@@ -46,8 +46,8 @@ h3{font:600 28px/1.08 var(--f);letter-spacing:-.02em}
 .jump{display:flex;gap:2px 16px;flex-wrap:wrap;justify-content:center;max-width:470px}
 .jump button{font:600 14px/1 var(--f);padding:8px 0;border:0;background:none;color:var(--ink3);cursor:pointer;border-bottom:2px solid transparent}
 .jump button.on{color:var(--ink);border-bottom-color:var(--ink)}
-@media (max-width:1100px){.hero{grid-template-columns:1fr}.heroPhone{order:2}h1{font-size:60px}h2{font-size:44px}}
-@media (max-width:520px){.wrap{padding:0 18px}section{padding:100px 0}h1{font-size:46px}h2{font-size:38px}h3{font-size:24px}.lede{font-size:19px}.phone{transform:scale(.82);margin-bottom:-150px}}
+@media (max-width:1100px){.hero{grid-template-columns:minmax(0,1fr)}.heroPhone{order:2}h1{font-size:60px}h2{font-size:44px}}
+@media (max-width:520px){.wrap{padding:0 18px}section{padding:100px 0}h1{font-size:46px}h2{font-size:38px}h3{font-size:24px}.lede{font-size:19px}.phone{zoom:.84}.stats.three{grid-template-columns:1fr!important}}
 
 /* evidence */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:70px}
@@ -55,7 +55,7 @@ h3{font:600 28px/1.08 var(--f);letter-spacing:-.02em}
 .stat b{display:block;font:700 56px/1 var(--f);letter-spacing:-.035em}
 .stat p{font:500 16px/1.4 var(--f);color:var(--ink2);margin-top:12px}
 .stat small{display:block;font:500 13px/1.35 var(--f);color:var(--ink3);margin-top:12px}
-@media (max-width:1000px){.stats{grid-template-columns:1fr 1fr}}
+@media (max-width:1000px){.stats{grid-template-columns:1fr 1fr}.stats.three{grid-template-columns:1fr!important}}
 @media (max-width:560px){.stats{grid-template-columns:1fr}}
 
 /* mechanics */
@@ -248,7 +248,7 @@ h3{font:600 28px/1.08 var(--f);letter-spacing:-.02em}
       <div class="ph reveal"><div class="w">Phase 2<small>20 to 35 dev days</small></div><p><b>Blocks and gym drops.</b> Territory from walks with the app open, the weekly gym table, and a JF plaque in each gym (about $5 to $15 each, if Snap is happy with it).</p><div class="e">All 17 gyms<span>Only if the pilot moves steps</span></div></div>
       <div class="ph reveal"><div class="w">Phase 3<small>2 to 8 weeks</small></div><p><b>Native AR.</b> Trinkets pinned to the plaque with ARKit (iPhone first), then ARCore. Optional 3D gym scans, which double as tours for new leads.</p><div class="e">Stretch<span>Only if people use the camera</span></div></div>
     </div>
-    <div class="stats" style="margin-top:16px;grid-template-columns:1fr 1fr 1fr">
+    <div class="stats three" style="margin-top:16px;grid-template-columns:1fr 1fr 1fr">
       <div class="stat reveal"><b id="simA">+1,000</b><p>steps a day still there in week 4, against each person's own baseline. That's the bar for going wider.</p><small>Points, blocks and trinkets don't count as success. Steps do.</small></div>
       <div class="stat reveal"><b>250</b><p>Go points a week at most. Steps already earn 16 a day at 8,000, and a drop is 10 plus 2 per 100 m, so Go adds to the challenge without swamping workouts and habits.</p><small>Gold ×2. Gym drops 15 × 3 = 45. Map secrets stay at 200.</small></div>
       <div class="stat reveal"><b id="testsN">49/49</b><p id="testsP">tests passing in the reference engine: drops, claims, crates, blocks and gym drops, plus a 4-week simulation of 40 sample clients. Every injected cheat (driver, spoofer, couch, teleport) was rejected.</p><small>Plain Node, no dependencies. Not connected to anything live.</small></div>
