@@ -1,0 +1,1400 @@
+[
+{
+"road": "Wells Road",
+"x": -383,
+"y": -829,
+"len": 3
+},
+{
+"road": "Wells Road",
+"x": -304,
+"y": -616,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": 341,
+"y": 900,
+"len": 6
+},
+{
+"road": "Thames Promenade",
+"x": 308,
+"y": 988,
+"len": 6
+},
+{
+"road": "Thames Promenade",
+"x": 350,
+"y": 956,
+"len": 5
+},
+{
+"road": "Wells Road",
+"x": 367,
+"y": 927,
+"len": 4
+},
+{
+"road": "Wells Road",
+"x": 420,
+"y": 1076,
+"len": 6
+},
+{
+"road": "Springvale Road",
+"x": 131,
+"y": -1537,
+"len": 2
+},
+{
+"road": "Springvale Road",
+"x": -171,
+"y": -1176,
+"len": 4
+},
+{
+"road": "Edithvale Road",
+"x": -440,
+"y": -800,
+"len": 4
+},
+{
+"road": "Thames Promenade",
+"x": 347,
+"y": 970,
+"len": 6
+},
+{
+"road": "Thames Promenade",
+"x": 456,
+"y": 902,
+"len": 3
+},
+{
+"road": "Thames Promenade",
+"x": 405,
+"y": 913,
+"len": 8
+},
+{
+"road": "Wells Road",
+"x": 387,
+"y": 974,
+"len": 6
+},
+{
+"road": "Pillars Road",
+"x": 245,
+"y": -1497,
+"len": 42
+},
+{
+"road": "Springvale Road",
+"x": 298,
+"y": -1865,
+"len": 23
+},
+{
+"road": "Springvale Road",
+"x": 147,
+"y": -1592,
+"len": 2
+},
+{
+"road": "Springvale Road",
+"x": 147,
+"y": -1557,
+"len": 2
+},
+{
+"road": "Branagan Drive",
+"x": -1140,
+"y": -1151,
+"len": 12
+},
+{
+"road": "Springvale Road",
+"x": -290,
+"y": -961,
+"len": 5
+},
+{
+"road": "Wells Road",
+"x": -110,
+"y": -199,
+"len": 4
+},
+{
+"name": "Wannarkladdin Wetlands",
+"x": 66,
+"y": 2284,
+"area": 488633
+},
+{
+"name": "Heights Park",
+"x": 150,
+"y": 1131,
+"area": 22613
+},
+{
+"name": "Fielding Drive Reserve",
+"x": 254,
+"y": 1845,
+"area": 4012
+},
+{
+"road": "Edithvale Road",
+"x": -612,
+"y": -639,
+"len": 8
+},
+{
+"road": "Branagan Drive",
+"x": -772,
+"y": -841,
+"len": 6
+},
+{
+"road": "Springvale Road",
+"x": -134,
+"y": -1177,
+"len": 3
+},
+{
+"road": "Springvale Road",
+"x": 127,
+"y": -1565,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -333,
+"y": -681,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": 823,
+"y": 2129,
+"len": 6
+},
+{
+"road": "Nurten Parade",
+"x": -1325,
+"y": -1211,
+"len": 4
+},
+{
+"road": "Nurten Parade",
+"x": -1055,
+"y": -1450,
+"len": 6
+},
+{
+"road": "Wells Road",
+"x": -670,
+"y": -1124,
+"len": 16
+},
+{
+"road": "Kearney Drive",
+"x": -1619,
+"y": -1442,
+"len": 5
+},
+{
+"road": "Kearney Drive",
+"x": -1385,
+"y": -1201,
+"len": 4
+},
+{
+"road": "Branagan Drive",
+"x": -950,
+"y": -1019,
+"len": 6
+},
+{
+"road": "Wells Road",
+"x": -891,
+"y": -1400,
+"len": 15
+},
+{
+"road": "Wells Road",
+"x": -294,
+"y": -630,
+"len": 3
+},
+{
+"road": "Thames Promenade",
+"x": -145,
+"y": 1182,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": 143,
+"y": 398,
+"len": 14
+},
+{
+"name": "L.L. Steveson Reserve",
+"x": -1458,
+"y": -1436,
+"area": 7069
+},
+{
+"road": "Edithvale Road",
+"x": -1716,
+"y": 78,
+"len": 6
+},
+{
+"road": "Edithvale Road",
+"x": -1140,
+"y": -170,
+"len": 13
+},
+{
+"road": "Thames Promenade",
+"x": -450,
+"y": 1226,
+"len": 10
+},
+{
+"road": "Wells Road",
+"x": -396,
+"y": -814,
+"len": 4
+},
+{
+"road": "Edithvale Road",
+"x": -569,
+"y": -667,
+"len": 5
+},
+{
+"road": "Wells Road",
+"x": -354,
+"y": -770,
+"len": 3
+},
+{
+"road": "Wells Road",
+"x": 456,
+"y": 1132,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": 784,
+"y": 1957,
+"len": 3
+},
+{
+"road": "Wells Road",
+"x": 766,
+"y": 1926,
+"len": 3
+},
+{
+"road": "Wells Road",
+"x": 774,
+"y": 1923,
+"len": 3
+},
+{
+"road": "Wells Road",
+"x": 778,
+"y": 1959,
+"len": 3
+},
+{
+"road": "Wells Road",
+"x": 733,
+"y": 1785,
+"len": 9
+},
+{
+"name": "Talab Court Reserve",
+"x": 488,
+"y": 1590,
+"area": 7693
+},
+{
+"road": "Springvale Road",
+"x": 303,
+"y": -1809,
+"len": 26
+},
+{
+"road": "Springvale Road",
+"x": -28,
+"y": -1319,
+"len": 3
+},
+{
+"road": "Branagan Drive",
+"x": -670,
+"y": -744,
+"len": 9
+},
+{
+"road": "Edithvale Road",
+"x": -872,
+"y": -394,
+"len": 10
+},
+{
+"road": "Edithvale Road",
+"x": -604,
+"y": -636,
+"len": 7
+},
+{
+"road": "Springvale Road",
+"x": -145,
+"y": -1211,
+"len": 4
+},
+{
+"road": "Springvale Road",
+"x": -243,
+"y": -1075,
+"len": 3
+},
+{
+"road": "Springvale Road",
+"x": -397,
+"y": -852,
+"len": 2
+},
+{
+"road": "Springvale Road",
+"x": -396,
+"y": -826,
+"len": 4
+},
+{
+"road": "Springvale Road",
+"x": -45,
+"y": -1297,
+"len": 2
+},
+{
+"road": "Thames Promenade",
+"x": 26,
+"y": 1109,
+"len": 4
+},
+{
+"road": "Thames Promenade",
+"x": -920,
+"y": 1378,
+"len": 3
+},
+{
+"name": "Chelsea Bicentennial Park",
+"x": -669,
+"y": 1566,
+"area": 298636
+},
+{
+"name": "Chelsea Recreation Reserve",
+"x": -981,
+"y": 1565,
+"area": 34515
+},
+{
+"name": "Longbeach Trail Park",
+"x": -548,
+"y": 872,
+"area": 39036
+},
+{
+"name": "Firman Park",
+"x": 932,
+"y": 287,
+"area": 126020
+},
+{
+"road": "Springvale Road",
+"x": 375,
+"y": -2167,
+"len": 4
+},
+{
+"road": "Springvale Road",
+"x": 354,
+"y": -2181,
+"len": 4
+},
+{
+"road": "Thames Promenade",
+"x": -1407,
+"y": 1534,
+"len": 4
+},
+{
+"road": "Thames Promenade",
+"x": -1044,
+"y": 1387,
+"len": 5
+},
+{
+"road": "Thames Promenade",
+"x": -991,
+"y": 1399,
+"len": 16
+},
+{
+"road": "Thames Promenade",
+"x": -952,
+"y": 1392,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -392,
+"y": -844,
+"len": 4
+},
+{
+"road": "Wells Road",
+"x": -406,
+"y": -831,
+"len": 4
+},
+{
+"road": "Springvale Road",
+"x": -380,
+"y": -846,
+"len": 6
+},
+{
+"road": "Edithvale Road",
+"x": -406,
+"y": -815,
+"len": 3
+},
+{
+"road": "Wells Road",
+"x": -404,
+"y": -859,
+"len": 4
+},
+{
+"road": "Springvale Road",
+"x": -227,
+"y": -1051,
+"len": 3
+},
+{
+"road": "Edithvale Road",
+"x": -444,
+"y": -780,
+"len": 2
+},
+{
+"road": "Thames Promenade",
+"x": 401,
+"y": 931,
+"len": 9
+},
+{
+"road": "Springvale Road",
+"x": -206,
+"y": -1079,
+"len": 3
+},
+{
+"road": "Thames Promenade",
+"x": 567,
+"y": 855,
+"len": 3
+},
+{
+"road": "Thames Promenade",
+"x": 151,
+"y": 1055,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": 455,
+"y": 1123,
+"len": 3
+},
+{
+"road": "Wells Road",
+"x": 322,
+"y": 815,
+"len": 4
+},
+{
+"road": "Wells Road",
+"x": -321,
+"y": -694,
+"len": 3
+},
+{
+"road": "Wells Road",
+"x": -428,
+"y": -861,
+"len": 8
+},
+{
+"road": "Edithvale Road",
+"x": -419,
+"y": -823,
+"len": 6
+},
+{
+"road": "Edithvale Road",
+"x": -525,
+"y": -707,
+"len": 3
+},
+{
+"road": "Springvale Road",
+"x": -320,
+"y": -921,
+"len": 2
+},
+{
+"road": "Springvale Road",
+"x": -331,
+"y": -943,
+"len": 2
+},
+{
+"road": "Springvale Road",
+"x": -393,
+"y": -857,
+"len": 3
+},
+{
+"road": "Edithvale Road",
+"x": -552,
+"y": -691,
+"len": 12
+},
+{
+"road": "Wells Road",
+"x": -423,
+"y": -882,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -362,
+"y": -746,
+"len": 3
+},
+{
+"name": "Beazley Reserve",
+"x": -348,
+"y": 1367,
+"area": 43772
+},
+{
+"road": "Thames Promenade",
+"x": -525,
+"y": 1219,
+"len": 22
+},
+{
+"road": "Thames Promenade",
+"x": -521,
+"y": 1211,
+"len": 22
+},
+{
+"road": "Wells Road",
+"x": 588,
+"y": 1444,
+"len": 6
+},
+{
+"road": "Wells Road",
+"x": 598,
+"y": 1441,
+"len": 6
+},
+{
+"road": "Wells Road",
+"x": 576,
+"y": 1410,
+"len": 6
+},
+{
+"road": "Wells Road",
+"x": 587,
+"y": 1414,
+"len": 6
+},
+{
+"road": "Thames Promenade",
+"x": 107,
+"y": 1075,
+"len": 2
+},
+{
+"road": "Thames Promenade",
+"x": 115,
+"y": 1066,
+"len": 2
+},
+{
+"road": "Thames Promenade",
+"x": 126,
+"y": 1068,
+"len": 2
+},
+{
+"road": "Thames Promenade",
+"x": 138,
+"y": 1060,
+"len": 2
+},
+{
+"road": "Branagan Drive",
+"x": -601,
+"y": -669,
+"len": 5
+},
+{
+"road": "Branagan Drive",
+"x": -607,
+"y": -664,
+"len": 5
+},
+{
+"road": "Branagan Drive",
+"x": -703,
+"y": -805,
+"len": 5
+},
+{
+"road": "Branagan Drive",
+"x": -709,
+"y": -802,
+"len": 6
+},
+{
+"road": "Branagan Drive",
+"x": -745,
+"y": -827,
+"len": 2
+},
+{
+"road": "Branagan Drive",
+"x": -722,
+"y": -821,
+"len": 2
+},
+{
+"road": "Branagan Drive",
+"x": -847,
+"y": -912,
+"len": 2
+},
+{
+"road": "Branagan Drive",
+"x": -862,
+"y": -921,
+"len": 2
+},
+{
+"road": "Branagan Drive",
+"x": -866,
+"y": -937,
+"len": 2
+},
+{
+"road": "Branagan Drive",
+"x": -883,
+"y": -950,
+"len": 2
+},
+{
+"road": "Branagan Drive",
+"x": -1032,
+"y": -1089,
+"len": 2
+},
+{
+"road": "Branagan Drive",
+"x": -1047,
+"y": -1097,
+"len": 2
+},
+{
+"road": "Branagan Drive",
+"x": -1071,
+"y": -1116,
+"len": 2
+},
+{
+"road": "Branagan Drive",
+"x": -1062,
+"y": -1115,
+"len": 3
+},
+{
+"road": "Nurten Parade",
+"x": -1344,
+"y": -1194,
+"len": 2
+},
+{
+"road": "Nurten Parade",
+"x": -1355,
+"y": -1180,
+"len": 2
+},
+{
+"road": "Kearney Drive",
+"x": -1370,
+"y": -1188,
+"len": 4
+},
+{
+"road": "Kearney Drive",
+"x": -1378,
+"y": -1193,
+"len": 4
+},
+{
+"road": "Branagan Drive",
+"x": -1325,
+"y": -1211,
+"len": 2
+},
+{
+"road": "Branagan Drive",
+"x": -1314,
+"y": -1201,
+"len": 2
+},
+{
+"road": "Nurten Parade",
+"x": -1187,
+"y": -1332,
+"len": 3
+},
+{
+"road": "Nurten Parade",
+"x": -1190,
+"y": -1335,
+"len": 3
+},
+{
+"road": "Nurten Parade",
+"x": -1169,
+"y": -1346,
+"len": 2
+},
+{
+"road": "Nurten Parade",
+"x": -1161,
+"y": -1358,
+"len": 2
+},
+{
+"road": "Kearney Drive",
+"x": -1551,
+"y": -1366,
+"len": 2
+},
+{
+"road": "Kearney Drive",
+"x": -1526,
+"y": -1353,
+"len": 2
+},
+{
+"road": "Kearney Drive",
+"x": -1558,
+"y": -1379,
+"len": 2
+},
+{
+"road": "Kearney Drive",
+"x": -1572,
+"y": -1388,
+"len": 2
+},
+{
+"road": "Springvale Road",
+"x": 352,
+"y": -2165,
+"len": 2
+},
+{
+"road": "Springvale Road",
+"x": 345,
+"y": -2121,
+"len": 2
+},
+{
+"road": "Springvale Road",
+"x": 333,
+"y": -2035,
+"len": 3
+},
+{
+"road": "Springvale Road",
+"x": 350,
+"y": -2147,
+"len": 3
+},
+{
+"road": "Springvale Road",
+"x": 360,
+"y": -2070,
+"len": 4
+},
+{
+"road": "Springvale Road",
+"x": 373,
+"y": -2154,
+"len": 2
+},
+{
+"road": "Springvale Road",
+"x": 367,
+"y": -2116,
+"len": 3
+},
+{
+"road": "Springvale Road",
+"x": 82,
+"y": -1471,
+"len": 2
+},
+{
+"road": "Springvale Road",
+"x": 57,
+"y": -1437,
+"len": 3
+},
+{
+"road": "Springvale Road",
+"x": 137,
+"y": -1544,
+"len": 2
+},
+{
+"road": "Springvale Road",
+"x": -277,
+"y": -980,
+"len": 2
+},
+{
+"road": "Springvale Road",
+"x": -317,
+"y": -926,
+"len": 2
+},
+{
+"road": "Springvale Road",
+"x": -246,
+"y": -1024,
+"len": 2
+},
+{
+"road": "Springvale Road",
+"x": 64,
+"y": -1480,
+"len": 3
+},
+{
+"road": "Springvale Road",
+"x": -84,
+"y": -1283,
+"len": 4
+},
+{
+"road": "Springvale Road",
+"x": -73,
+"y": -1297,
+"len": 3
+},
+{
+"road": "Springvale Road",
+"x": -273,
+"y": -1029,
+"len": 3
+},
+{
+"road": "Springvale Road",
+"x": -261,
+"y": -1047,
+"len": 3
+},
+{
+"road": "Springvale Road",
+"x": -325,
+"y": -952,
+"len": 6
+},
+{
+"road": "Springvale Road",
+"x": -343,
+"y": -891,
+"len": 2
+},
+{
+"road": "Springvale Road",
+"x": -364,
+"y": -865,
+"len": 2
+},
+{
+"road": "Edithvale Road",
+"x": -472,
+"y": -771,
+"len": 3
+},
+{
+"road": "Nurten Parade",
+"x": -1005,
+"y": -1490,
+"len": 3
+},
+{
+"road": "Nurten Parade",
+"x": -1012,
+"y": -1497,
+"len": 3
+},
+{
+"road": "Springvale Road",
+"x": -378,
+"y": -877,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -85,
+"y": -142,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -64,
+"y": -92,
+"len": 3
+},
+{
+"road": "Wells Road",
+"x": -124,
+"y": -229,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -128,
+"y": -238,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -114,
+"y": -208,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -120,
+"y": -219,
+"len": 4
+},
+{
+"road": "Wells Road",
+"x": -134,
+"y": -253,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -144,
+"y": -278,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -152,
+"y": -296,
+"len": 3
+},
+{
+"road": "Wells Road",
+"x": -165,
+"y": -326,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -175,
+"y": -350,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -206,
+"y": -422,
+"len": 3
+},
+{
+"road": "Wells Road",
+"x": -220,
+"y": -440,
+"len": 3
+},
+{
+"road": "Wells Road",
+"x": -208,
+"y": -426,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -223,
+"y": -468,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -262,
+"y": -556,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -249,
+"y": -527,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -212,
+"y": -443,
+"len": 3
+},
+{
+"road": "Wells Road",
+"x": -281,
+"y": -564,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -262,
+"y": -524,
+"len": 4
+},
+{
+"road": "Wells Road",
+"x": -315,
+"y": -679,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -343,
+"y": -703,
+"len": 2
+},
+{
+"road": "Edithvale Road",
+"x": -475,
+"y": -751,
+"len": 2
+},
+{
+"road": "Edithvale Road",
+"x": -521,
+"y": -722,
+"len": 2
+},
+{
+"road": "Edithvale Road",
+"x": -495,
+"y": -749,
+"len": 4
+},
+{
+"road": "Edithvale Road",
+"x": -704,
+"y": -548,
+"len": 2
+},
+{
+"road": "Edithvale Road",
+"x": -671,
+"y": -578,
+"len": 4
+},
+{
+"road": "Edithvale Road",
+"x": -1345,
+"y": -82,
+"len": 3
+},
+{
+"road": "Edithvale Road",
+"x": -1446,
+"y": -38,
+"len": 6
+},
+{
+"road": "Edithvale Road",
+"x": -1471,
+"y": -27,
+"len": 2
+},
+{
+"road": "Edithvale Road",
+"x": -1512,
+"y": -9,
+"len": 2
+},
+{
+"road": "Edithvale Road",
+"x": -1530,
+"y": -1,
+"len": 2
+},
+{
+"road": "Thames Promenade",
+"x": 138,
+"y": 1060,
+"len": 2
+},
+{
+"road": "Thames Promenade",
+"x": 98,
+"y": 1078,
+"len": 2
+},
+{
+"road": "Thames Promenade",
+"x": -260,
+"y": 1232,
+"len": 5
+},
+{
+"road": "Thames Promenade",
+"x": -1068,
+"y": 1390,
+"len": 8
+},
+{
+"road": "Thames Promenade",
+"x": 325,
+"y": 979,
+"len": 2
+},
+{
+"road": "Edithvale Road",
+"x": -1401,
+"y": -57,
+"len": 3
+},
+{
+"road": "Springvale Road",
+"x": 373,
+"y": -2148,
+"len": 2
+},
+{
+"road": "Thames Promenade",
+"x": 213,
+"y": 1028,
+"len": 2
+},
+{
+"road": "Thames Promenade",
+"x": 178,
+"y": 1044,
+"len": 2
+},
+{
+"road": "Thames Promenade",
+"x": -327,
+"y": 1253,
+"len": 9
+},
+{
+"road": "Thames Promenade",
+"x": -1630,
+"y": 1630,
+"len": 4
+},
+{
+"road": "Thames Promenade",
+"x": -1429,
+"y": 1544,
+"len": 4
+},
+{
+"road": "Wells Road",
+"x": -1254,
+"y": -1725,
+"len": 31
+},
+{
+"road": "Wells Road",
+"x": -1236,
+"y": -1737,
+"len": 23
+},
+{
+"road": "Wells Road",
+"x": -312,
+"y": -673,
+"len": 3
+},
+{
+"road": "Wells Road",
+"x": -327,
+"y": -666,
+"len": 4
+},
+{
+"road": "Wells Road",
+"x": -308,
+"y": -627,
+"len": 3
+},
+{
+"road": "Springvale Road",
+"x": -139,
+"y": -1218,
+"len": 3
+},
+{
+"road": "Springvale Road",
+"x": -129,
+"y": -1183,
+"len": 2
+},
+{
+"road": "Thames Promenade",
+"x": -957,
+"y": 1394,
+"len": 3
+},
+{
+"road": "Springvale Road",
+"x": -224,
+"y": -1055,
+"len": 2
+},
+{
+"road": "Springvale Road",
+"x": -246,
+"y": -1071,
+"len": 2
+},
+{
+"name": "Woolepe Bushland Reserve",
+"x": -1796,
+"y": 1084,
+"area": 3579
+},
+{
+"name": "Sixth Avenue Reserve",
+"x": 48,
+"y": 719,
+"area": 3473
+},
+{
+"name": "Third Avenue Reserve",
+"x": -157,
+"y": 872,
+"area": 1313
+},
+{
+"road": "Wells Road",
+"x": -358,
+"y": -736,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": -326,
+"y": -704,
+"len": 2
+},
+{
+"road": "Thames Promenade",
+"x": 445,
+"y": 896,
+"len": 6
+},
+{
+"road": "Thames Promenade",
+"x": 558,
+"y": 850,
+"len": 3
+},
+{
+"road": "Thames Promenade",
+"x": 473,
+"y": 895,
+"len": 4
+},
+{
+"road": "Wells Road",
+"x": 369,
+"y": 966,
+"len": 4
+},
+{
+"road": "Wells Road",
+"x": 386,
+"y": 1008,
+"len": 3
+},
+{
+"road": "Wells Road",
+"x": 354,
+"y": 897,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": 341,
+"y": 865,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": 302,
+"y": 792,
+"len": 3
+},
+{
+"road": "Thames Promenade",
+"x": 521,
+"y": 866,
+"len": 2
+},
+{
+"road": "Wells Road",
+"x": 360,
+"y": 947,
+"len": 2
+},
+{
+"road": "Thames Promenade",
+"x": 365,
+"y": 942,
+"len": 3
+}
+]

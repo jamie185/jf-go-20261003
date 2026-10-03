@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#E9EDF2">
+<title>JF Go · prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="stage">
+  <nav class="scenes" id="scenes">
+    <h2>JF Go</h2>
+    <p>A clickable prototype. Fixture data only, around the Chelsea Heights gym. Tap through, or jump to a scene.</p>
+  </nav>
+
+  <div class="device" id="device">
+    <div class="app" id="app">
+      <div class="island"></div>
+      <div class="sbar"><span id="clock">12:41</span><span class="ic">
+        <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="currentColor"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="currentColor"/><rect x="10" y="3" width="3" height="9" rx="1" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="1" fill="currentColor"/></svg>
+        <svg viewBox="0 0 16 12"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.2-1.3A10.4 10.4 0 0 0 8 .4C5.2.4 2.7 1.5.8 3.3L2 4.6a8.6 8.6 0 0 1 6-2.4Zm0 3.6c1.3 0 2.5.5 3.4 1.3l1.2-1.3A6.9 6.9 0 0 0 8 4a6.9 6.9 0 0 0-4.6 1.8l1.2 1.3c.9-.8 2.1-1.3 3.4-1.3Zm0 3.5c-.5 0-1 .2-1.3.5L8 11.2l1.3-1.4c-.3-.3-.8-.5-1.3-.5Z" fill="currentColor"/></svg>
+        <svg viewBox="0 0 27 12"><rect x=".5" y=".5" width="22" height="11" rx="3.5" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="currentColor"/><path d="M24.5 4v4c.8-.3 1.3-1.1 1.3-2s-.5-1.7-1.3-2Z" fill="currentColor" opacity=".45"/></svg>
+      </span></div>
+
+      <!-- 1. lock screen: the one ding a day -->
+      <section class="screen lock" id="s-lock">
+        <div class="wall"></div>
+        <div class="clock"><small id="lockdate">Tuesday 7 October</small><b id="locktime">12:41</b></div>
+        <div id="lockstack"></div>
+        <div class="hint">Tap the notification</div>
+      </section>
+
+      <!-- 2. challenge tab with the Go card -->
+      <section class="screen" id="s-challenge">
+        <div class="scroll">
+          <div class="wash"></div>
+          <div style="position:relative">
+            <div class="big" style="margin-top:62px">Challenge</div>
+            <div class="hero" style="margin-top:8px">
+              <div class="av" id="heroAv"></div>
+              <div><small>Level 4</small><b>1,362</b><span>638 points to Level 5</span></div>
+            </div>
+            <div class="gocard" id="goCard">
+              <div class="mini map" id="miniMap"></div>
+              <div class="copy"><small>Go</small><b>3 drops near you</b><span>Nearest is 650 m away in Heights Park. About 870 steps.</span></div>
+              <div class="arrow"><svg width="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            </div>
+            <div class="card" style="margin-top:10px">
+              <div class="row" data-go="crates"><div class="sq" style="background:#F6EBCF"><img id="rowCrate" style="width:34px"></div><div class="t"><b>Crates</b><span>2 sealed. 1,786 steps to the next one</span></div><svg class="chev" viewBox="0 0 9 16"><path d="M1 1l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+              <div class="row" data-go="blocks"><div class="sq" style="background:#DCEBFB"><svg viewBox="0 0 24 24"><path d="M7 3.5h10l5 8.5-5 8.5H7L2 12z" fill="#4DA3FF"/></svg></div><div class="t"><b>Chelsea Heights blocks</b><span>Holding 214. Up 12 this week</span></div><svg class="chev" viewBox="0 0 9 16"><path d="M1 1l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+              <div class="row" data-go="collection"><div class="sq" style="background:#EEF1F5"><img id="rowColl" style="width:34px"></div><div class="t"><b>Collection</b><span>7 of 16 found</span></div><svg class="chev" viewBox="0 0 9 16"><path d="M1 1l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            </div>
+            <div class="card">
+              <div class="row"><div class="sq" style="background:#E4F3D6"><svg viewBox="0 0 24 24" fill="none" stroke="#237318" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><div class="t"><b>Tick today's habits on Today</b><span>2 of 4 habits done today</span></div><svg class="chev" viewBox="0 0 9 16"><path d="M1 1l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+              <div class="row"><div class="sq" style="background:#FDEBD6"><svg viewBox="0 0 24 24" fill="none" stroke="#A85000" stroke-width="2.2" stroke-linecap="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/></svg></div><div class="t"><b>How scoring works</b><span>Points, the leaderboard and prizes</span></div><svg class="chev" viewBox="0 0 9 16"><path d="M1 1l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            </div>
+          </div>
+        </div>
+        <div class="tabbar"><div class="tabs">
+          <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5V20h-5v-6h-6v6H4z"/></svg>Home</div>
+          <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M3 9v6M6.5 7v10M17.5 7v10M21 9v6M6.5 12h11"/></svg>Training</div>
+          <div class="tab on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3"/></svg>Challenge</div>
+          <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>More</div>
+        </div><div class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div></div>
+      </section>
+
+      <!-- 3/4/8. the Go map: drops, walking, blocks -->
+      <section class="screen" id="s-map">
+        <div class="map" id="map"></div>
+        <div class="hudtop">
+          <button class="gbtn round" data-back><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <div class="seg" id="seg"><button data-mode="drops" class="on">Drops</button><button data-mode="blocks">Blocks</button></div>
+          <div class="steps" id="stepsPill"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" fill="none" stroke="#E7EBF2" stroke-width="5"/><circle id="stepsArc" cx="18" cy="18" r="14" fill="none" stroke="#8BD42A" stroke-width="5" stroke-linecap="round" stroke-dasharray="88" stroke-dashoffset="30" transform="rotate(-90 18 18)"/></svg><div><b id="stepsNum">6,214</b><small>steps</small></div></div>
+        </div>
+        <div class="sheet" id="sheetDrops">
+          <div class="grab"></div>
+          <div class="drop" id="dropCard"></div>
+          <div class="actions"><button class="btn" id="btnWalk"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 3.5a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm-1.8 5.1 3-1.6c.9-.5 2-.3 2.6.5l1.4 1.9 2.2.7c.6.2.9.8.7 1.4-.2.5-.8.8-1.3.6l-2.6-.8-.7-.9-.8 3.6 2.3 2.3c.2.2.3.4.3.7l.6 4.4a1.1 1.1 0 0 1-2.2.3l-.5-4-2.1-2-1 4.4-2.6 2.6a1.1 1.1 0 0 1-1.6-1.6l2.3-2.3 1.7-7.6-1 .5-.9 2.5a1.1 1.1 0 0 1-2.1-.7l1.1-3c.1-.3.4-.6.7-.7Z"/></svg>Walk there</button><button class="btn light" id="btnLook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Look around</button></div>
+          <div class="others" id="others"></div>
+        </div>
+        <div class="sheet hide" id="sheetWalk">
+          <div class="grab"></div>
+          <div class="walkhud"><div><b id="wSteps">0</b><small>steps since you set off</small></div><div class="r"><b id="wDist" style="font-size:30px">650 m</b><small id="wTo">to Heights Park</small></div></div>
+          <div class="bar"><i id="wBar"></i></div>
+          <div class="actions"><button class="btn light" id="btnStop">Stop</button><button class="btn" id="btnArrive" style="opacity:.35;pointer-events:none">Open the drop</button></div>
+        </div>
+        <div class="sheet hide" id="sheetBlocks">
+          <div class="grab"></div>
+          <div class="legend"><span><i style="background:var(--gymCH)"></i>Chelsea Heights</span><span><i style="background:var(--gymLB)"></i>Lynbrook</span><span><i style="background:var(--gymBR)"></i>Botanic Ridge</span></div>
+          <div class="board" id="board"></div>
+          <div class="explain" style="margin:8px 2px 0;font-size:13px">A block goes to the gym with the most steps in it over the last 7 days. Your home block never shows your walks.</div>
+        </div>
+      </section>
+
+      <!-- 5. look around: the beam in the park -->
+      <section class="screen cam" id="s-cam">
+        <canvas class="gl" id="camGL"></canvas>
+        <div class="camtop"><button class="gbtn round" data-back><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+          <button class="gbtn" id="gyroBtn" style="font-size:14px">Use motion</button></div>
+        <div class="dist" id="camDist"><b>180 m</b><span>Golden dumbbell · Heights Park</span></div>
+        <div class="edgearrow" id="camArrow"><svg viewBox="0 0 24 24" fill="none" stroke="#1F2025" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="reticle" id="camRet"></div>
+        <div class="camfoot"><div class="hintline" id="camHint">Turn until the light is in front of you. Drag to look around.</div><button class="glassbtn" id="camCloser"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 3.5a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm-1.8 5.1 3-1.6c.9-.5 2-.3 2.6.5l1.4 1.9 2.2.7c.6.2.9.8.7 1.4-.2.5-.8.8-1.3.6l-2.6-.8-.7-.9-.8 3.6 2.3 2.3c.2.2.3.4.3.7l.6 4.4a1.1 1.1 0 0 1-2.2.3l-.5-4-2.1-2-1 4.4-2.6 2.6a1.1 1.1 0 0 1-1.6-1.6l2.3-2.3 1.7-7.6-1 .5-.9 2.5a1.1 1.1 0 0 1-2.1-.7l1.1-3c.1-.3.4-.6.7-.7Z"/></svg>Walk closer (prototype)</button></div>
+        <div class="credit">Photo: Merri Creek Trail, Preston. Philip Mallis, CC BY-SA 2.0. Depth by AI.</div>
+      </section>
+
+      <!-- 7. crates -->
+      <section class="screen" id="s-crates">
+        <div class="nav"><button class="gbtn round" data-back><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button></div>
+        <div class="scroll"><div class="wash gold"></div><div style="position:relative">
+          <div class="big">Crates</div>
+          <div class="sub">Walk anywhere to open them. Apple Health keeps count, so the dog walk and the shops count too.</div>
+          <div class="card" id="crateList"></div>
+          <div class="explain">You can carry three sealed crates. Drops give you new ones, so the walking keeps them coming.</div>
+        </div></div>
+      </section>
+
+      <!-- 10. gym hunt -->
+      <section class="screen cam" id="s-gym">
+        <canvas class="gl" id="gymGL"></canvas>
+        <div class="camtop"><button class="gbtn round" data-back><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+          <button class="gbtn" id="gymGyro" style="font-size:14px">Use motion</button></div>
+        <div class="cluecard" id="clue"><img id="clueImg" alt=""><div>Look near the plate tree<span>Session drop · 3× points</span></div></div>
+        <div class="edgearrow" id="gymArrow"><svg viewBox="0 0 24 24" fill="none" stroke="#1F2025" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="reticle" id="gymRet"></div>
+        <div class="camfoot"><div class="hintline" id="gymHint">Something's glowing behind the machines. Drag to look around it.</div></div>
+        <div class="credit">Photo: Snap Fitness Chelsea Heights club page. Depth by AI.</div>
+      </section>
+
+      <!-- 11. collection -->
+      <section class="screen" id="s-collection">
+        <div class="nav"><button class="gbtn round" data-back><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button></div>
+        <div class="scroll"><div class="wash blue"></div><div style="position:relative">
+          <div class="big">Collection</div>
+          <div class="sub">8 of 16 found. The Spring set leaves in November.</div>
+          <div class="grid" id="grid"></div>
+        </div></div>
+      </section>
+
+      <!-- 12. settings -->
+      <section class="screen" id="s-settings">
+        <div class="nav"><button class="gbtn round" data-back><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button></div>
+        <div class="scroll"><div class="wash"></div><div style="position:relative">
+          <div class="big">Go settings</div>
+          <div class="sub">Drops land near the places you pick. We never use your address.</div>
+          <div class="sect">Where drops land</div>
+          <div class="card">
+            <div class="row"><div class="t"><b>Home area</b><span>Suburb only</span></div><span class="val">Chelsea Heights</span></div>
+            <div class="row"><div class="t"><b>Work area</b><span>For lunch walks</span></div><span class="val">Mordialloc</span></div>
+            <div class="row" style="display:block"><div class="t"><b>Furthest drop</b><span>1.5 km, about 2,000 steps</span></div><div class="slider"><i></i><b></b></div></div>
+            <div class="row"><div class="t"><b>Step-free places only</b><span>Paved paths, no stairs</span></div><div class="toggle off"></div></div>
+          </div>
+          <div class="sect">When we tell you</div>
+          <div class="card">
+            <div class="row"><div class="t"><b>Lunch</b><span>12:00 to 2:00</span></div><div class="toggle"></div></div>
+            <div class="row"><div class="t"><b>After work</b><span>5:00 to 7:00</span></div><div class="toggle"></div></div>
+            <div class="row"><div class="t"><b>Weekend mornings</b><span>8:00 to 11:00</span></div><div class="toggle off"></div></div>
+            <div class="row"><div class="t"><b>Only when I'm behind on steps</b><span>Compared with your usual day</span></div><div class="toggle"></div></div>
+          </div>
+          <div class="explain">At most one a day. Never during a session, at night, or when it's raining or over 32°.</div>
+          <div class="sect">Privacy</div>
+          <div class="card">
+            <div class="row"><div class="t"><b>Show my walks in blocks</b><span>Gym colour only, never your name</span></div><div class="toggle"></div></div>
+            <div class="row"><div class="t"><b>Hide my home block</b><span>Always on</span></div><div class="toggle" style="opacity:.5"></div></div>
+          </div>
+        </div></div>
+      </section>
+
+      <!-- collect sheet -->
+      <div class="modal" id="collect"><div class="pane">
+        <div class="stagec" id="cStage"><canvas id="cCanvas"></canvas><canvas class="burst" id="burst"></canvas></div>
+        <h3 id="cName">Golden dumbbell</h3>
+        <div class="flav" id="cFlav">Heavier than it looks. Lighter than leg day.</div>
+        <div class="earn"><div><b id="cPts">+85</b><small>points</small></div><div><b id="cSteps">874</b><small>steps to get here</small></div><div><b id="cBlocks">4</b><small>blocks walked</small></div></div>
+        <div class="xrow" id="cCrate"><img id="cCrateImg"><div class="t">Big crate added<span>Opens after 5,000 more steps, anywhere</span></div></div>
+        <div class="xrow" id="cBonus"><div class="t">Want a bonus while you're here?<span>10 push-ups on the bench. Honour system.</span></div><button id="cBonusBtn">+20</button></div>
+        <button class="btn full" id="cDone" style="margin-top:4px">Done</button>
+      </div></div>
+
+      <div class="toast" id="toast"></div>
+      <div class="homebar"></div>
+    </div>
+  </div>
+
+  <aside class="notes" id="notes"></aside>
+</div>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,858 @@
+{
+ "origin": {
+  "lat": -38.0355,
+  "lng": 145.1356,
+  "name": "Chelsea Heights gym"
+ },
+ "note": "Candidate drop points: footpaths inside public parks/reserves, 90 m apart. Source: OpenStreetMap contributors (ODbL).",
+ "points": [
+  {
+   "x": -1465,
+   "y": -14,
+   "lat": -38.035378,
+   "lng": 145.118889,
+   "place": "Edithvale Recreation Reserve",
+   "path": null
+  },
+  {
+   "x": -615,
+   "y": 1437,
+   "lat": -38.048408,
+   "lng": 145.128591,
+   "place": "Chelsea Bicentennial Park",
+   "path": null
+  },
+  {
+   "x": -464,
+   "y": 1769,
+   "lat": -38.051388,
+   "lng": 145.130307,
+   "place": "Chelsea Bicentennial Park",
+   "path": null
+  },
+  {
+   "x": -1658,
+   "y": -916,
+   "lat": -38.027274,
+   "lng": 145.11669,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": 461,
+   "y": 2970,
+   "lat": -38.062179,
+   "lng": 145.140862,
+   "place": "Wannarkladdin Wetlands",
+   "path": null
+  },
+  {
+   "x": -1507,
+   "y": -632,
+   "lat": -38.029822,
+   "lng": 145.118417,
+   "place": "Edithvale Common Reserve",
+   "path": "Longbeach Trail"
+  },
+  {
+   "x": -628,
+   "y": -1316,
+   "lat": -38.023675,
+   "lng": 145.128435,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -362,
+   "y": 1502,
+   "lat": -38.048993,
+   "lng": 145.131469,
+   "place": "Beazley Reserve",
+   "path": null
+  },
+  {
+   "x": -167,
+   "y": 195,
+   "lat": -38.037249,
+   "lng": 145.133696,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -1376,
+   "y": 153,
+   "lat": -38.036876,
+   "lng": 145.119905,
+   "place": "Edithvale Recreation Reserve",
+   "path": null
+  },
+  {
+   "x": -240,
+   "y": 1524,
+   "lat": -38.049186,
+   "lng": 145.132865,
+   "place": "Wannarkladdin Wetlands",
+   "path": null
+  },
+  {
+   "x": -1624,
+   "y": -507,
+   "lat": -38.030948,
+   "lng": 145.117076,
+   "place": "Edithvale Common Reserve",
+   "path": null
+  },
+  {
+   "x": -872,
+   "y": -1629,
+   "lat": -38.02087,
+   "lng": 145.125656,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -1309,
+   "y": -1129,
+   "lat": -38.025356,
+   "lng": 145.120667,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -825,
+   "y": -1109,
+   "lat": -38.025541,
+   "lng": 145.126192,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -292,
+   "y": 1301,
+   "lat": -38.047187,
+   "lng": 145.132273,
+   "place": "Beazley Reserve",
+   "path": null
+  },
+  {
+   "x": 52,
+   "y": 2016,
+   "lat": -38.053606,
+   "lng": 145.136196,
+   "place": "Wannarkladdin Wetlands",
+   "path": null
+  },
+  {
+   "x": -1441,
+   "y": 78,
+   "lat": -38.036204,
+   "lng": 145.119165,
+   "place": "Edithvale Recreation Reserve",
+   "path": null
+  },
+  {
+   "x": 289,
+   "y": 1858,
+   "lat": -38.052187,
+   "lng": 145.138896,
+   "place": "Fielding Drive Reserve",
+   "path": null
+  },
+  {
+   "x": -75,
+   "y": 2627,
+   "lat": -38.059103,
+   "lng": 145.134749,
+   "place": "Wannarkladdin Wetlands",
+   "path": "Longbeach Trail"
+  },
+  {
+   "x": -1074,
+   "y": -1243,
+   "lat": -38.024332,
+   "lng": 145.123347,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": 511,
+   "y": 1569,
+   "lat": -38.049592,
+   "lng": 145.141431,
+   "place": "Talab Court Reserve",
+   "path": null
+  },
+  {
+   "x": -688,
+   "y": -766,
+   "lat": -38.028616,
+   "lng": 145.12775,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": 75,
+   "y": 1098,
+   "lat": -38.045361,
+   "lng": 145.136458,
+   "place": "Heights Park",
+   "path": null
+  },
+  {
+   "x": -284,
+   "y": 5,
+   "lat": -38.035545,
+   "lng": 145.132356,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -605,
+   "y": 1639,
+   "lat": -38.050219,
+   "lng": 145.128704,
+   "place": "Chelsea Bicentennial Park",
+   "path": null
+  },
+  {
+   "x": -1518,
+   "y": 212,
+   "lat": -38.037408,
+   "lng": 145.118288,
+   "place": "Edithvale Recreation Reserve",
+   "path": null
+  },
+  {
+   "x": -801,
+   "y": 1544,
+   "lat": -38.049371,
+   "lng": 145.126469,
+   "place": "Chelsea Bicentennial Park",
+   "path": null
+  },
+  {
+   "x": -703,
+   "y": 1477,
+   "lat": -38.048766,
+   "lng": 145.127579,
+   "place": "Chelsea Bicentennial Park",
+   "path": null
+  },
+  {
+   "x": -1593,
+   "y": 47,
+   "lat": -38.035921,
+   "lng": 145.117428,
+   "place": "Edithvale Recreation Reserve",
+   "path": null
+  },
+  {
+   "x": -791,
+   "y": 1356,
+   "lat": -38.047678,
+   "lng": 145.126576,
+   "place": "Chelsea Bicentennial Park",
+   "path": null
+  },
+  {
+   "x": 43,
+   "y": -2129,
+   "lat": -38.016379,
+   "lng": 145.136088,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -22,
+   "y": -2204,
+   "lat": -38.015706,
+   "lng": 145.135355,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -243,
+   "y": 98,
+   "lat": -38.036379,
+   "lng": 145.132834,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -386,
+   "y": 1365,
+   "lat": -38.047759,
+   "lng": 145.131197,
+   "place": "Beazley Reserve",
+   "path": null
+  },
+  {
+   "x": -1129,
+   "y": -185,
+   "lat": -38.03384,
+   "lng": 145.122725,
+   "place": "Edithvale Common Reserve",
+   "path": "Longbeach Trail"
+  },
+  {
+   "x": -196,
+   "y": -2270,
+   "lat": -38.015108,
+   "lng": 145.13337,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -974,
+   "y": -1008,
+   "lat": -38.026444,
+   "lng": 145.124493,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": 253,
+   "y": 3133,
+   "lat": -38.063641,
+   "lng": 145.138491,
+   "place": "Wannarkladdin Wetlands",
+   "path": "Longbeach Trail"
+  },
+  {
+   "x": 134,
+   "y": 2155,
+   "lat": -38.054854,
+   "lng": 145.137132,
+   "place": "Wannarkladdin Wetlands",
+   "path": null
+  },
+  {
+   "x": -875,
+   "y": 1484,
+   "lat": -38.048832,
+   "lng": 145.125615,
+   "place": "Chelsea Bicentennial Park",
+   "path": null
+  },
+  {
+   "x": 378,
+   "y": 2778,
+   "lat": -38.060456,
+   "lng": 145.139915,
+   "place": "Wannarkladdin Wetlands",
+   "path": null
+  },
+  {
+   "x": -744,
+   "y": 1633,
+   "lat": -38.050168,
+   "lng": 145.127117,
+   "place": "Chelsea Bicentennial Park",
+   "path": null
+  },
+  {
+   "x": -202,
+   "y": 334,
+   "lat": -38.0385,
+   "lng": 145.133296,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -291,
+   "y": -107,
+   "lat": -38.034536,
+   "lng": 145.132277,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -1875,
+   "y": -1303,
+   "lat": -38.023799,
+   "lng": 145.114213,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -772,
+   "y": -1678,
+   "lat": -38.020426,
+   "lng": 145.12679,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -1371,
+   "y": -402,
+   "lat": -38.031889,
+   "lng": 145.11996,
+   "place": "Edithvale Common Reserve",
+   "path": null
+  },
+  {
+   "x": -633,
+   "y": 1280,
+   "lat": -38.046999,
+   "lng": 145.128378,
+   "place": "Chelsea Bicentennial Park",
+   "path": "Longbeach Trail"
+  },
+  {
+   "x": -485,
+   "y": 850,
+   "lat": -38.043135,
+   "lng": 145.130068,
+   "place": "Longbeach Trail Park",
+   "path": null
+  },
+  {
+   "x": -1534,
+   "y": -342,
+   "lat": -38.032432,
+   "lng": 145.118106,
+   "place": "Edithvale Common Reserve",
+   "path": null
+  },
+  {
+   "x": -283,
+   "y": -2351,
+   "lat": -38.014385,
+   "lng": 145.132374,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": 265,
+   "y": 2480,
+   "lat": -38.057777,
+   "lng": 145.13862,
+   "place": "Wannarkladdin Wetlands",
+   "path": null
+  },
+  {
+   "x": -1459,
+   "y": -1461,
+   "lat": -38.022375,
+   "lng": 145.118958,
+   "place": "L.L. Steveson Reserve",
+   "path": null
+  },
+  {
+   "x": 252,
+   "y": 2385,
+   "lat": -38.056929,
+   "lng": 145.138478,
+   "place": "Wannarkladdin Wetlands",
+   "path": null
+  },
+  {
+   "x": -509,
+   "y": 1877,
+   "lat": -38.052366,
+   "lng": 145.129797,
+   "place": "Chelsea Bicentennial Park",
+   "path": "Longbeach Trail"
+  },
+  {
+   "x": -1007,
+   "y": -1891,
+   "lat": -38.018517,
+   "lng": 145.124112,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -460,
+   "y": 2019,
+   "lat": -38.053637,
+   "lng": 145.130358,
+   "place": "Chelsea Bicentennial Park",
+   "path": null
+  },
+  {
+   "x": -160,
+   "y": 864,
+   "lat": -38.04326,
+   "lng": 145.13377,
+   "place": "Third Avenue Reserve",
+   "path": null
+  },
+  {
+   "x": -915,
+   "y": 1392,
+   "lat": -38.048003,
+   "lng": 145.12516,
+   "place": "Chelsea Bicentennial Park",
+   "path": null
+  },
+  {
+   "x": -15,
+   "y": 1867,
+   "lat": -38.052271,
+   "lng": 145.135431,
+   "place": "Wannarkladdin Wetlands",
+   "path": null
+  },
+  {
+   "x": 606,
+   "y": 1535,
+   "lat": -38.04929,
+   "lng": 145.142509,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": 73,
+   "y": 1223,
+   "lat": -38.046486,
+   "lng": 145.136437,
+   "place": "Heights Park",
+   "path": null
+  },
+  {
+   "x": -1339,
+   "y": -266,
+   "lat": -38.033114,
+   "lng": 145.120328,
+   "place": "Edithvale Common Reserve",
+   "path": null
+  },
+  {
+   "x": 531,
+   "y": 1375,
+   "lat": -38.047856,
+   "lng": 145.141658,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -1424,
+   "y": -536,
+   "lat": -38.030681,
+   "lng": 145.11936,
+   "place": "Edithvale Common Reserve",
+   "path": "Longbeach Trail"
+  },
+  {
+   "x": 274,
+   "y": 2627,
+   "lat": -38.0591,
+   "lng": 145.138726,
+   "place": "Wannarkladdin Wetlands",
+   "path": null
+  },
+  {
+   "x": 156,
+   "y": 2989,
+   "lat": -38.062351,
+   "lng": 145.137385,
+   "place": "Wannarkladdin Wetlands",
+   "path": "Longbeach Trail"
+  },
+  {
+   "x": -1721,
+   "y": -1088,
+   "lat": -38.025727,
+   "lng": 145.115968,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": 23,
+   "y": 2787,
+   "lat": -38.06054,
+   "lng": 145.135863,
+   "place": "Wannarkladdin Wetlands",
+   "path": "Longbeach Trail"
+  },
+  {
+   "x": -12,
+   "y": 1742,
+   "lat": -38.051149,
+   "lng": 145.135467,
+   "place": "Wannarkladdin Wetlands",
+   "path": null
+  },
+  {
+   "x": -1340,
+   "y": -101,
+   "lat": -38.03459,
+   "lng": 145.120322,
+   "place": "Edithvale Common Reserve",
+   "path": null
+  },
+  {
+   "x": -1234,
+   "y": 986,
+   "lat": -38.044357,
+   "lng": 145.12152,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -553,
+   "y": 1751,
+   "lat": -38.051232,
+   "lng": 145.129294,
+   "place": "Chelsea Bicentennial Park",
+   "path": null
+  },
+  {
+   "x": -84,
+   "y": 1574,
+   "lat": -38.049641,
+   "lng": 145.134639,
+   "place": "Wannarkladdin Wetlands",
+   "path": null
+  },
+  {
+   "x": -458,
+   "y": -2439,
+   "lat": -38.013587,
+   "lng": 145.130375,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -928,
+   "y": -1325,
+   "lat": -38.023598,
+   "lng": 145.125018,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": 155,
+   "y": 1150,
+   "lat": -38.045829,
+   "lng": 145.137366,
+   "place": "Heights Park",
+   "path": null
+  },
+  {
+   "x": -494,
+   "y": 1387,
+   "lat": -38.047961,
+   "lng": 145.129969,
+   "place": "Chelsea Bicentennial Park",
+   "path": null
+  },
+  {
+   "x": -699,
+   "y": 1373,
+   "lat": -38.047834,
+   "lng": 145.127627,
+   "place": "Chelsea Bicentennial Park",
+   "path": null
+  },
+  {
+   "x": -1605,
+   "y": -600,
+   "lat": -38.030113,
+   "lng": 145.117296,
+   "place": "Edithvale Common Reserve",
+   "path": null
+  },
+  {
+   "x": -611,
+   "y": 930,
+   "lat": -38.043852,
+   "lng": 145.128626,
+   "place": "Longbeach Trail Park",
+   "path": null
+  },
+  {
+   "x": -244,
+   "y": 1379,
+   "lat": -38.047885,
+   "lng": 145.132814,
+   "place": "Beazley Reserve",
+   "path": null
+  },
+  {
+   "x": -921,
+   "y": -1113,
+   "lat": -38.025503,
+   "lng": 145.125097,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -26,
+   "y": 2711,
+   "lat": -38.05985,
+   "lng": 145.135306,
+   "place": "Wannarkladdin Wetlands",
+   "path": "Longbeach Trail"
+  },
+  {
+   "x": -1229,
+   "y": -311,
+   "lat": -38.032704,
+   "lng": 145.12158,
+   "place": "Edithvale Common Reserve",
+   "path": "Longbeach Trail"
+  },
+  {
+   "x": 198,
+   "y": 2227,
+   "lat": -38.055501,
+   "lng": 145.137854,
+   "place": "Wannarkladdin Wetlands",
+   "path": null
+  },
+  {
+   "x": -622,
+   "y": -2457,
+   "lat": -38.013428,
+   "lng": 145.128511,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -135,
+   "y": 2525,
+   "lat": -38.058181,
+   "lng": 145.134059,
+   "place": "Wannarkladdin Wetlands",
+   "path": "Longbeach Trail"
+  },
+  {
+   "x": -405,
+   "y": 1589,
+   "lat": -38.049771,
+   "lng": 145.130981,
+   "place": "Chelsea Bicentennial Park",
+   "path": null
+  },
+  {
+   "x": -1259,
+   "y": -1529,
+   "lat": -38.021768,
+   "lng": 145.121244,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -367,
+   "y": -2441,
+   "lat": -38.013571,
+   "lng": 145.131417,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -1794,
+   "y": -1209,
+   "lat": -38.024637,
+   "lng": 145.115141,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -525,
+   "y": 1237,
+   "lat": -38.046615,
+   "lng": 145.129615,
+   "place": "Chelsea Bicentennial Park",
+   "path": "Longbeach Trail"
+  },
+  {
+   "x": -673,
+   "y": 1784,
+   "lat": -38.05153,
+   "lng": 145.127925,
+   "place": "Chelsea Bicentennial Park",
+   "path": null
+  },
+  {
+   "x": -592,
+   "y": -984,
+   "lat": -38.026663,
+   "lng": 145.128853,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": -1470,
+   "y": -411,
+   "lat": -38.031805,
+   "lng": 145.118836,
+   "place": "Edithvale Common Reserve",
+   "path": null
+  },
+  {
+   "x": -627,
+   "y": 1534,
+   "lat": -38.049282,
+   "lng": 145.128449,
+   "place": "Chelsea Bicentennial Park",
+   "path": "Longbeach Trail"
+  },
+  {
+   "x": -512,
+   "y": 1619,
+   "lat": -38.050046,
+   "lng": 145.129761,
+   "place": "Chelsea Bicentennial Park",
+   "path": null
+  },
+  {
+   "x": -101,
+   "y": -2250,
+   "lat": -38.015292,
+   "lng": 145.134443,
+   "place": "Reserve",
+   "path": null
+  },
+  {
+   "x": 299,
+   "y": 2720,
+   "lat": -38.059931,
+   "lng": 145.139012,
+   "place": "Wannarkladdin Wetlands",
+   "path": null
+  },
+  {
+   "x": -1585,
+   "y": -423,
+   "lat": -38.031697,
+   "lng": 145.117526,
+   "place": "Edithvale Common Reserve",
+   "path": null
+  },
+  {
+   "x": 167,
+   "y": 1058,
+   "lat": -38.045008,
+   "lng": 145.137504,
+   "place": "Heights Park",
+   "path": null
+  },
+  {
+   "x": 90,
+   "y": 2888,
+   "lat": -38.061445,
+   "lng": 145.136624,
+   "place": "Wannarkladdin Wetlands",
+   "path": "Longbeach Trail"
+  },
+  {
+   "x": -1519,
+   "y": -1393,
+   "lat": -38.022983,
+   "lng": 145.118281,
+   "place": "L.L. Steveson Reserve",
+   "path": null
+  },
+  {
+   "x": 423,
+   "y": 2869,
+   "lat": -38.061273,
+   "lng": 145.140424,
+   "place": "Wannarkladdin Wetlands",
+   "path": null
+  }
+ ]
+}
